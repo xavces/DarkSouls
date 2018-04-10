@@ -1,11 +1,15 @@
 package characters;
 
-
+import lsg.armor.armorItem;
 import lsg.weapons.ShotGun;
 import lsg.weapons.Weapon;
 import lsg.weapons.Sword;
 
 public class Hero extends Character {
+
+    private static int MAX_ARMOR_PIECES = 3;
+
+    private armorItem[] stuff = new armorItem[MAX_ARMOR_PIECES];
 
     public Hero(String nameHero) {
         super.setName(nameHero);
@@ -47,5 +51,38 @@ public class Hero extends Character {
             }
 
         }
+    }
+
+    public void setArmorItem(armorItem armorItem, int slot) {
+        if (slot < 0 || slot > MAX_ARMOR_PIECES) {
+            return ;
+        }
+        else {
+            this.stuff[slot - 1] = armorItem;
+        }
+    }
+
+    public float getTotalArmor() {
+        float total = 0;
+        for (armorItem item: stuff) {
+            if (item != null)
+                total += item.getArmorValue();
+        }
+        return total;
+    }
+
+    public String armorToString() {
+        String string = "ARMOR  ";
+        int i = 1;
+
+        for (armorItem item: stuff) {
+            if (item != null) {
+                string += i + ":" + item.toString() + "    ";
+            } else {
+                string += i + ":empty    " ;
+            }
+            i++;
+        }
+        return string;
     }
 }

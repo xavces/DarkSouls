@@ -8,6 +8,17 @@ public class Monster extends Character {
 
     private static int INSTANCES_COUNT = 0;
 
+    private float skinThickness = 20;
+
+
+    protected float getSkinThickness() {
+        return skinThickness;
+    }
+
+    protected void setSkinThickness(float skinThickness) {
+        this.skinThickness = skinThickness;
+    }
+
     public Monster(String nameMonster) {
         super.setName(nameMonster);
         super.setLife(100);
