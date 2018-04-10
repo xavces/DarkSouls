@@ -12,3 +12,5 @@ dans un package différent de là où il est créé.
 TP 2 
 
 1.2 : Il faudra passer des membres de 
+
+6 : La durabilité de l'arme est commune au Héro et au Monstre. L'arme est instancié une seule fois. 
