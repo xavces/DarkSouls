@@ -14,6 +14,12 @@ public abstract class Character {
     public Dice diceCharact = new Dice(101);
     private Weapon weapon;
 
+    public static final String LIFE_STAT_STRING = "life";
+    public static final String STAM_STAT_STRING = "stamina";
+    public static final String PROTECTION_STAT_STRING = "protection";
+    public static final String BUFF_STAT_STRING = "buff";
+
+
     public String getName() {
         return name;
     }
@@ -75,10 +81,10 @@ public abstract class Character {
         String alive = isAlive() ? "(ALIVE)" : "(DEAD)";
         return String.format("%-20s", "[" + getClass().getSimpleName() + "]") +
                 String.format("%-20s", this.getName()) +
-                String.format("%-20s", "Life : " + life) +
-                String.format("%-20s", "Stamina : " + stamina) +
-                String.format(Locale.US, "%-20s", "Protection : " + computeProtection()) +
-                String.format(Locale.US, "%-20s", "Buff : " + computeBuff()) +
+                String.format("%-20s", LIFE_STAT_STRING + " : " + life) +
+                String.format("%-20s", STAM_STAT_STRING + " : " + stamina) +
+                String.format(Locale.US, "%-20s", PROTECTION_STAT_STRING + " : " + computeProtection()) +
+                String.format(Locale.US, "%-20s", BUFF_STAT_STRING + " : " + computeBuff()) +
                 String.format("%-20s", alive);
     }
 

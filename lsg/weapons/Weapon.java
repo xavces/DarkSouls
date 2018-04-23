@@ -7,6 +7,9 @@ public class Weapon {
     private int stamCost;
     private int durability;
 
+    public static final String DURABILITY_STAT_STRING = "durability";
+
+
     public String getNameWeapon() {
         return nameWeapon;
     }
