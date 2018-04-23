@@ -3,6 +3,8 @@ package characters;
 import lsg.helpers.Dice;
 import lsg.weapons.Weapon;
 
+import java.util.Locale;
+
 public abstract class Character {
     private String name;
     private int life;
@@ -75,6 +77,8 @@ public abstract class Character {
                 String.format("%-20s", this.getName()) +
                 String.format("%-20s", "Life : " + life) +
                 String.format("%-20s", "Stamina : " + stamina) +
+                String.format(Locale.US, "%-20s", "Protection : " + computeProtection()) +
+                String.format(Locale.US, "%-20s", "Buff : " + computeBuff()) +
                 String.format("%-20s", alive);
     }
 
@@ -83,9 +87,10 @@ public abstract class Character {
     }
 
     public int getHitWith(int value) {
-        float damage = value;
-        if (damage <= this.getLife()) {
-            this.setLife(this.getLife() - Math.round(damage));
+        if (computeProtection() >= 100)
+            return 0;
+        if (value <= this.getLife()) {
+            this.setLife(this.getLife() - Math.round(value*(1-computeProtection()/100)));
             return this.getLife();
         }
         else {
@@ -95,6 +100,8 @@ public abstract class Character {
     }
 
     abstract int attackWith(Weapon weapon);
+    abstract float computeProtection();
+    abstract float computeBuff();
 
 
 }

@@ -1,6 +1,6 @@
 package lsg.buffs.rings;
 
-import lsg.characters.Hero;
+import characters.Hero;
 
 public class RingOfDeath extends Ring{
 	
@@ -10,14 +10,14 @@ public class RingOfDeath extends Ring{
 		super("Ring of Death", 10000) ;
 	}
 
-	@Override
-	public float computeBuffValue() {
-		if (hero != null){
-			float gauge = (float)hero.getLife() / hero.getMaxLife() ;
-			if(gauge <= LIMIT) return power ;
-			else return 0f ;
-		}else return 0f ;
-	}
+//	@Override
+//	public float computeBuffValue() {
+//		if (hero != null){
+//			float gauge = (float)hero.getLife() / hero.getMaxLife() ;
+//			if(gauge <= LIMIT) return power ;
+//			else return 0f ;
+//		}else return 0f ;
+//	}
 	
 	/**
 	 * Un test...

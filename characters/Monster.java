@@ -1,15 +1,18 @@
 package characters;
 
+import lsg.buffs.rings.Ring;
 import lsg.weapons.Sword;
 import lsg.weapons.Weapon;
+import lsg.buffs.talismans.*;
 
 public class Monster extends Character {
 
 
     private static int INSTANCES_COUNT = 0;
+    private static int MAX_TALISMAN_PIECES = 1;
 
-    private float skinThickness = 20;
-
+    private float skinThickness = 0;
+    private Talisman talisman = new MoonStone();
 
     protected float getSkinThickness() {
         return skinThickness;
@@ -25,7 +28,7 @@ public class Monster extends Character {
         super.setMaxLife(100);
         super.setStamina(50);
         super.setMaxStamina(50);
-        Sword basicSword = new Sword("Basic Sword", 5, 10, 20, 100);
+        Sword basicSword = new Sword();
         super.setWeapon(basicSword);
     }
 
@@ -36,6 +39,15 @@ public class Monster extends Character {
         super.setMaxLife(10);
         super.setStamina(10);
         super.setMaxStamina(10);
+    }
+
+    public void setTalisman(Talisman talisman, int slot) {
+        if (slot < 0 || slot > MAX_TALISMAN_PIECES) {
+            return ;
+        }
+        else {
+            this.talisman = talisman;
+        }
     }
 
 
@@ -65,6 +77,23 @@ public class Monster extends Character {
         }
     }
 
+    public float getTotalTalisman() {
+        float total = 0;
 
+        if (talisman != null)
+            total += talisman.computeBuffValue();
+
+        return total;
+    }
+
+    @Override
+    float computeProtection() {
+        return this.skinThickness;
+    }
+
+    @Override
+    float computeBuff() {
+        return this.getTotalTalisman();
+    }
 
 }

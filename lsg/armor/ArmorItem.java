@@ -1,6 +1,6 @@
 package lsg.armor;
 
-public class armorItem {
+public class ArmorItem {
     private String name;
     private float armorValue;
 
@@ -13,7 +13,7 @@ public class armorItem {
         return armorValue;
     }
 
-    public armorItem(String name, float armorValue) {
+    public ArmorItem(String name, float armorValue) {
         this.name = name;
         this.armorValue = armorValue;
     }

@@ -7,10 +7,11 @@ import lsg.buffs.BuffItem;
 public class Talisman extends BuffItem {
 	
 	private float buff ;
-	private int start, end ; 
+	private int start, end ;
+	private String name;
 	
 	public Talisman(String name, float buff, int start, int end) {
-		super(name) ;
+		this.name = name ;
 		this.buff = buff ;
 		this.start = start ;
 		this.end = end ;
