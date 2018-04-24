@@ -85,7 +85,7 @@ public class Hero extends Character {
             if (item != null)
                 total += item.getArmorValue();
         }
-        return total;
+        return Math.round(total);
     }
 
     public float getTotalRing() {

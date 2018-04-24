@@ -3,7 +3,7 @@ package consumables;
 public class Consumable {
 
     private String name;
-    private int capacity;
+    protected int capacity;
     private String stat;
 
 
@@ -32,13 +32,14 @@ public class Consumable {
     @Override
     public String toString(){
         if (this.capacity > 1)
-            return this.name + " [" + this.capacity + " " + this.stat + " point(s)]";
+            return getName() + " [" + getCapacity() + " " + getStat() + " point(s)]";
         else
-            return this.name + " [" + this.capacity + " " + this.stat + " point]";
+            return getName() + " [" + getCapacity() + " " + getStat() + " point]";
     }
 
     public int use() {
-        setCapacity(0);
-        return getCapacity();
+        int capacity = getCapacity();
+        this.setCapacity(0);
+        return capacity;
     }
 }

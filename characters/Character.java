@@ -1,7 +1,11 @@
 package characters;
 
+import consumables.Consumable;
+import consumables.drinks.Drink;
+import consumables.food.Food;
 import lsg.helpers.Dice;
 import lsg.weapons.Weapon;
+import consumables.repair.RepairKit;
 
 import java.util.Locale;
 
@@ -13,6 +17,7 @@ public abstract class Character {
     private int maxStamina;
     public Dice diceCharact = new Dice(101);
     private Weapon weapon;
+    private Consumable consumable;
 
     public static final String LIFE_STAT_STRING = "life";
     public static final String STAM_STAT_STRING = "stamina";
@@ -68,6 +73,14 @@ public abstract class Character {
         this.weapon = weapon;
     }
 
+    public Consumable getConsumable() {
+        return consumable;
+    }
+
+    public void setConsumable(Consumable consumable) {
+        this.consumable = consumable;
+    }
+
     public boolean isAlive() {
         if (this.getLife() > 0)
             return true;
@@ -93,16 +106,61 @@ public abstract class Character {
     }
 
     public int getHitWith(int value) {
+        float dmgFinal = 0;
         if (computeProtection() >= 100)
             return 0;
+        dmgFinal = Math.round(value*(1-computeProtection()/100));
         if (value <= this.getLife()) {
-            this.setLife(this.getLife() - Math.round(value*(1-computeProtection()/100)));
-            return this.getLife();
+            this.setLife(this.getLife() - Math.round(dmgFinal));
+            return Math.round(dmgFinal);
         }
         else {
             this.setLife(0);
             return this.getLife();
         }
+    }
+
+    private void drink(Drink drink) {
+        System.out.println(getName() + " drinks " + drink.toString());
+        if ((drink.use() + this.getStamina()) >= this.getMaxStamina()) {
+            this.setStamina(this.getMaxStamina());
+        }
+        else {
+            this.setStamina(this.getStamina() + drink.use());
+        }
+    }
+
+    private void eat(Food food) {
+        System.out.println(getName() + " drinks " + food.toString());
+        int capacity = food.use();
+        int add = capacity + this.getLife();
+        if (add > this.getMaxLife()) {
+            this.setLife(this.getMaxLife());
+        }
+        else {
+            this.setLife(this.getLife() + capacity);
+        }
+    }
+
+    public void use(Consumable consumable) {
+        if(consumable instanceof Drink){
+            drink((Drink) consumable);
+        }
+        else if(consumable instanceof Food){
+            eat((Food) consumable);
+        }
+        else if (consumable instanceof RepairKit) {
+            repairWeaponWith((RepairKit) consumable);
+        }
+    }
+
+    private void repairWeaponWith(RepairKit kit) {
+        this.weapon.repairWith(kit);
+        System.out.println(this.name + " repairs " + weapon.toString() + " with " + kit.toString());
+    }
+
+    public void consume() {
+        use(consumable);
     }
 
     abstract int attackWith(Weapon weapon);

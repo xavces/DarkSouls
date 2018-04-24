@@ -24,8 +24,8 @@ public class Monster extends Character {
 
     public Monster(String nameMonster) {
         super.setName(nameMonster);
-        super.setLife(100);
-        super.setMaxLife(100);
+        super.setLife(80);
+        super.setMaxLife(80);
         super.setStamina(50);
         super.setMaxStamina(50);
         Sword basicSword = new Sword();
