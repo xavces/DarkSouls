@@ -1,10 +1,11 @@
 package lsg.weapons;
 
+import lsg.bags.Collectible;
 import lsg.consumables.repair.RepairKit;
 
 import static lsg.characters.Character.STAM_STAT_STRING;
 
-public class Weapon {
+public class Weapon implements Collectible {
 
     public static final String DURABILITY_STAT_STRING = "durability";
     public static final String MINI_DAMAGE_STRING = "minimal";
@@ -77,5 +78,10 @@ public class Weapon {
         if(kit != null && kit.getCapacity()>0) {
             this.setDurability(this.getDurability() + kit.use());
         }
+    }
+
+    @Override
+    public int getWeight() {
+        return 2;
     }
 }

@@ -1,5 +1,8 @@
 package lsg.characters;
 
+import lsg.bags.Bag;
+import lsg.bags.Collectible;
+import lsg.bags.SmallBag;
 import lsg.buffs.BuffItem;
 import lsg.consumables.Consumable;
 import lsg.consumables.drinks.Drink;
@@ -29,6 +32,9 @@ public abstract class Character {
     private BuffItem buff;
 
     private Consumable consumable;
+
+    private Bag bag = new SmallBag();
+
 
     /**
      * Initialisation du dès à 100 faces
@@ -220,6 +226,58 @@ public abstract class Character {
 
     public void consume(){
         this.use(this.getConsumable());
+    }
+
+    public void pickUp(Collectible item){
+        bag.push(item);
+        System.out.println(this.name + " picks up " + item.toString());
+    }
+
+    public Collectible pullOut(Collectible item){
+        Collectible result = bag.pop(item);
+        if( result != null)
+            System.out.println(this.name + " pulls out " + item.toString());
+        return result;
+    }
+
+    public void printBag(){
+        System.out.println(bag.toString());
+    }
+
+    public int getBagCapacity(){
+        return bag.getCapacity();
+    }
+
+    public int getBagWeight(){
+        return bag.getWeight();
+    }
+
+    public Collectible[] getBagItems(){
+        return bag.getItems();
+    }
+
+    public Bag setBag(Bag bag){
+        Bag.transfer(this.bag, bag);
+        Bag bagToReturn = this.bag;
+        this.bag = bag;
+        System.out.println(this.getName() + " changes " + bagToReturn.getClass().getSimpleName() + " for " + getClass().getSimpleName());
+        return bagToReturn;
+    }
+
+    public void equip(Weapon weapon){
+        if(bag.contains(weapon)){
+            this.setWeapon(weapon);
+            bag.pop(weapon);
+            System.out.println(this.getName() + " pulls out " + this.weapon.toString());
+        }
+    }
+
+    public void equip(Consumable consumable){
+        if(bag.contains(consumable)){
+            this.setConsumable(consumable);
+            bag.pop(consumable);
+            System.out.println(this.getName() + " pulls out " + this.consumable.toString());
+        }
     }
 
     abstract float computeProtection();
