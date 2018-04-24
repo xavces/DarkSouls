@@ -1,6 +1,10 @@
 package lsg.characters;
 
 import lsg.buffs.BuffItem;
+import lsg.consumables.Consumable;
+import lsg.consumables.drinks.Drink;
+import lsg.consumables.food.Food;
+import lsg.consumables.repair.RepairKit;
 import lsg.helpers.Dice;
 import lsg.weapons.Weapon;
 
@@ -23,6 +27,8 @@ public abstract class Character {
     private Weapon weapon;
 
     private BuffItem buff;
+
+    private Consumable consumable;
 
     /**
      * Initialisation du dès à 100 faces
@@ -85,6 +91,14 @@ public abstract class Character {
 
     }
 
+    public Consumable getConsumable() {
+        return consumable;
+    }
+
+    public void setConsumable(Consumable consumable) {
+        this.consumable = consumable;
+    }
+
     public void printStats() {
         System.out.println(this);
     }
@@ -99,9 +113,9 @@ public abstract class Character {
                 String.format("%-20s", this.getName()) +
                 String.format("%-20s", LIFE_STAT_STRING + ": " + this.getLife()) +
                 String.format("%-20s", STAM_STAT_STRING + ": "  + this.getStamina()) +
-                String.format("%-20s", (this.isAlive()?"(ALIVE)":"(DEAD)")) +
-                String.format(Locale.US , "%-20s", PROT_STAT_STRING + ": "  + this.computeProtection())+
-                String.format(Locale.US , "%-20s", BUFF_STAT_STRING + ": "  + this.computeBuff());
+                String.format(Locale.US , "%-20s", PROT_STAT_STRING + ": "  + this.computeProtection()) +
+                String.format(Locale.US , "%-20s", BUFF_STAT_STRING + ": "  + this.computeBuff()) +
+                String.format("%-20s", (this.isAlive()?"(ALIVE)":"(DEAD)"));
 
     }
 
@@ -165,6 +179,47 @@ public abstract class Character {
         int pvRetire =  Math.round(damage)<=this.getLife() ? Math.round(damage) : this.getLife();
         this.setLife(this.getLife() - pvRetire);
         return pvRetire;
+    }
+
+    private void drink(Drink drink){
+        System.out.println(this.name + " drinks " + drink.toString());
+        int regenerate = drink.use();
+        if(regenerate + this.getStamina()>= this.getMaxStamina())
+            this.setStamina(this.getMaxStamina());
+        else
+            this.setStamina(this.getStamina() + regenerate);
+        System.out.println("Après Utilisation : " + drink.toString());
+    }
+
+    private void eat(Food food){
+        System.out.println(this.name + " eats " + food.toString());
+        int regenerate = food.use();
+        if(regenerate + this.getLife() >= this.getMaxLife())
+            this.setLife(this.getMaxLife());
+        else
+            this.setLife(this.getLife() + regenerate);
+        System.out.println("Après Utilisation : " + food.toString());
+
+    }
+
+    private void repairWeaponWith(RepairKit kit){
+        System.out.println(this.name + " repairs " + this.weapon.toString() + "with" + kit.toString());
+        this.weapon.repairWith(kit);
+        System.out.println("Après Utilisation : " + kit.toString());
+    }
+
+    public void use(Consumable consumable){
+        if(consumable instanceof Food)
+            eat((Food)consumable);
+        else if(consumable instanceof Drink)
+            drink((Drink)consumable);
+        else if(consumable instanceof RepairKit)
+            repairWeaponWith((RepairKit)consumable);
+
+    }
+
+    public void consume(){
+        this.use(this.getConsumable());
     }
 
     abstract float computeProtection();

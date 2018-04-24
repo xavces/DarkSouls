@@ -6,10 +6,15 @@ import lsg.buffs.rings.RingOfSwords;
 import lsg.characters.Hero;
 import lsg.characters.Lycanthrope;
 import lsg.characters.Monster;
+import lsg.consumables.Consumable;
+import lsg.consumables.MenuBestOfV4;
+import lsg.consumables.food.Hamburger;
 import lsg.helpers.Dice;
 import lsg.weapons.Claw;
 import lsg.weapons.Sword;
+import lsg.weapons.Weapon;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class LearningSoulsGame {
@@ -43,40 +48,59 @@ public class LearningSoulsGame {
 
     Scanner scanner = new Scanner(System.in);
 
+    public static final String BULLET_POINT = "\u2219";
+
     /**
      * Fonction qui affiche l'affichage des 2 personnages
      */
     private void refresh (){
         hero.printStats();
+        System.out.println(BULLET_POINT + hero.getWeapon().toString());
+        System.out.println(BULLET_POINT + hero.getConsumable().toString());
         monster.printStats();
     }
 
     private void init(){
         hero.setWeapon(new Sword());
         monster.setWeapon(new Claw());
+        hero.setConsumable(new Hamburger());
     }
 
     private void fight1v1 (){
         while(hero.isAlive() && monster.isAlive()) {
+            int flag = 0;
 
+            while(flag == 0) {
+                System.out.println("Appuyer sur 1 pour attaquer ou sur 2 pour consommer.");
+                int action = scanner.nextInt();
+                if (action == 1) {
+                    int attackHero = hero.attack();
 
-            // Tour du héro, on génère son attaque
-            int attackHero = hero.attack();
+                    // On enlève la vie au monstre
+                    int damageOnMonster = monster.getHitWith(attackHero);
 
-            // On enlève la vie au monstre
-            int damageOnMonster = monster.getHitWith(attackHero);
+                    //On gère l'affichage de l'attaque
+                    System.out.println("!!! " + hero.getName() + " attack " + monster.getName() + " with " + hero.getWeapon().getName() +
+                            "(Attack:" + attackHero + " Damage : " + damageOnMonster + ") !!!");
 
-            //On gère l'affichage de l'attaque
-            System.out.println("!!! " + hero.getName() + " attack " + monster.getName() + " with " + hero.getWeapon().getName() +
-                    "(Attack:" + attackHero + " Damage : " + damageOnMonster + ") !!!");
-
-            if (!monster.isAlive()) {
-                refresh();
-                System.out.println(hero.getName() + " WINS !!!");
-                break;
+                    if (!monster.isAlive()) {
+                        refresh();
+                        System.out.println(hero.getName() + " WINS !!!");
+                        break;
+                    }
+                    refresh();
+                    flag = 1;
+                    scanner.nextLine();
+                }
+                if (action == 2) {
+                    hero.use(hero.getConsumable());
+                    refresh();
+                    flag = 1;
+                    scanner.nextLine();
+                }
             }
-            refresh();
-            scanner.nextLine();
+
+
 
 
             //On repète les même opération avec le monstre
@@ -90,8 +114,7 @@ public class LearningSoulsGame {
                 break;
             }
             refresh();
-            // On attend que l'utilisateur appuie sur Entrée
-            scanner.nextLine();
+
 
         }
     }
@@ -111,13 +134,46 @@ public class LearningSoulsGame {
         hero.setArmorItem(new BlackWitchVeil(), 1);
         monster = new Lycanthrope();
         hero.setRing(new RingOfDeath(), 1);
-
         hero.setRing(new RingOfSwords(), 2);
         fight1v1();
     }
 
+    /**
+     * TP4
+     *
+     */
+
+    private void createExhaustedHero(){
+        hero = new Hero();
+        hero.getHitWith(99);
+        hero.setWeapon(new Weapon("Grosse Arme", 0, 0, 1000, 100));
+        hero.attack();
+        refresh();
+    }
+
+    private void aTable(){
+        MenuBestOfV4 menu = new MenuBestOfV4();
+        menu.init();
+        Iterator<Consumable> myMenu = menu.iterator();
+        while(myMenu.hasNext()) {
+            Consumable element = myMenu.next();
+            hero.use(element);
+            refresh();
+        }
+        System.out.println(hero.getWeapon().toString());
+    }
+
+    private void title(){
+        System.out.println("##############################" + System.lineSeparator() +
+                "##   The Learning Soul Game ##" + System.lineSeparator() +
+        "##############################");
+    }
+
     public static void main(String[] args) {
         LearningSoulsGame lsg = new LearningSoulsGame();
+        //lsg.createExhaustedHero();
+        //lsg.aTable();
+        lsg.title();
         lsg.play_v3();
     }
 

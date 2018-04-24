@@ -1,6 +1,14 @@
 package lsg.weapons;
 
+import lsg.consumables.repair.RepairKit;
+
+import static lsg.characters.Character.STAM_STAT_STRING;
+
 public class Weapon {
+
+    public static final String DURABILITY_STAT_STRING = "durability";
+    public static final String MINI_DAMAGE_STRING = "minimal";
+    public static final String MAXI_DAMAGE_STRING = "maximal";
 
     /**
      * Définition des différents attributs d'une arme
@@ -48,7 +56,7 @@ public class Weapon {
     }
 
     public void use(){
-        this.setDurability(this.durability--);
+        this.setDurability(this.durability-1);
     }
 
     public boolean isBroken(){
@@ -61,7 +69,13 @@ public class Weapon {
      */
     @Override
     public String toString(){
-        return this.name + " (min:" + this.minDamage + " max:" + this.maxDamage +
-                " stam:" + this.stamCost + " dur:" + this.durability + ")";
+        return this.name + " (" + MINI_DAMAGE_STRING +":" + this.minDamage +" "+ MAXI_DAMAGE_STRING +":" + this.maxDamage +
+                " " +STAM_STAT_STRING + ":" + this.stamCost + " "+DURABILITY_STAT_STRING + ":" + this.durability + ")";
+    }
+
+    public void repairWith(RepairKit kit){
+        if(kit != null && kit.getCapacity()>0) {
+            this.setDurability(this.getDurability() + kit.use());
+        }
     }
 }
