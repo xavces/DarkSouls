@@ -1,12 +1,18 @@
 package lsg.characters;
 
+import lsg.buffs.BuffItem;
 import lsg.helpers.Dice;
 import lsg.weapons.Weapon;
 
-public class Character {
+import java.nio.Buffer;
+import java.util.Locale;
+
+public abstract class Character {
 
     public static final String LIFE_STAT_STRING = "life";
     public static final String STAM_STAT_STRING = "stamina";
+    public static final String PROT_STAT_STRING = "protection";
+    public static final String BUFF_STAT_STRING = "buff";
 
     private String name;
     private int life;
@@ -16,6 +22,11 @@ public class Character {
 
     private Weapon weapon;
 
+    private BuffItem buff;
+
+    /**
+     * Initialisation du dès à 100 faces
+     */
     public Dice myDice = new Dice(101);
 
     public String getName() {
@@ -66,8 +77,16 @@ public class Character {
         this.weapon = weapon;
     }
 
+    public BuffItem getBuff() {
+        return buff;
+    }
+
+    public void setBuff(BuffItem buff){
+
+    }
+
     public void printStats() {
-        System.out.println(this.toString());
+        System.out.println(this);
     }
 
     /**
@@ -80,7 +99,9 @@ public class Character {
                 String.format("%-20s", this.getName()) +
                 String.format("%-20s", LIFE_STAT_STRING + ": " + this.getLife()) +
                 String.format("%-20s", STAM_STAT_STRING + ": "  + this.getStamina()) +
-                String.format("%-20s", (this.isAlive()?"(ALIVE)":"(DEAD)"));
+                String.format("%-20s", (this.isAlive()?"(ALIVE)":"(DEAD)")) +
+                String.format(Locale.US , "%-20s", PROT_STAT_STRING + ": "  + this.computeProtection())+
+                String.format(Locale.US , "%-20s", BUFF_STAT_STRING + ": "  + this.computeBuff());
 
     }
 
@@ -92,23 +113,34 @@ public class Character {
         return this.getLife() > 0;
     }
 
+    /**
+     * Fonction qui gère l'attaque avec une arme et activant les buff
+     * @param weapon
+     * @return
+     */
     private int attackWith(Weapon weapon){
         if(weapon.isBroken())
             return 0;
         else{
             int myRoll = myDice.roll();
+            // On calcule la différence entre les dommages max et min de l'arme
             int weaponDiffAttack = weapon.getMaxDamage() - weapon.getMinDamage();
-            int myDamage = Math.round(weapon.getMinDamage() + (weaponDiffAttack * (float)myRoll/100));
+            // On calcule les dommages avec la "Précision"
+            int myDamage = Math.round((weapon.getMinDamage() + (weaponDiffAttack * (float)myRoll/100)) * (1+(computeBuff()/100)));
+            //Vérification de la stamina restante
+            // Si il est reste assez :
             if(this.stamina >= weapon.getStamCost()){
                 this.stamina -= weapon.getStamCost();
                 weapon.use();
                 return myDamage;
             }
+            // Sinon si la stamina est supérieure de 0
             else if (this.stamina != 0){
-                myDamage *= (float)this.stamina/weapon.getStamCost();
+                //On calcule un ratio des dommages avec la stamina restante et on mutliplie par le buff du personnage
+                myDamage *= Math.round(this.stamina/weapon.getStamCost() * (1+(computeBuff()/100)));
                 this.setStamina(0);
                 weapon.use();
-                return Math.round(myDamage);
+                return myDamage;
             }
             else
                 return 0;
@@ -117,9 +149,24 @@ public class Character {
     public int attack(){
         return attackWith(this.weapon);
     }
+
+    /**
+     * Fonction qui retourne la valeur de l'attaque
+     * La valeur par défaut si il reste assez de pv ou le nombre de PV restant si l'attaque est supérieure au nombre
+     * de PV
+     * La protection est activé ici
+     * @param value
+     * @return
+     */
     public int getHitWith(int value){
-        int pvRetire =  value<=this.getLife() ? value : this.getLife();
+        if (computeProtection() == 100)
+            return 0;
+        float damage = value*(1-computeProtection()/100);
+        int pvRetire =  Math.round(damage)<=this.getLife() ? Math.round(damage) : this.getLife();
         this.setLife(this.getLife() - pvRetire);
         return pvRetire;
     }
+
+    abstract float computeProtection();
+    abstract float computeBuff();
 }
