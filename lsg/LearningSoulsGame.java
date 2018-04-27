@@ -6,8 +6,12 @@ import characters.Lycanthrope;
 import characters.Monster;
 import consumables.Consumable;
 import consumables.MenuBestOfV4;
+import consumables.drinks.Whisky;
+import consumables.drinks.Wine;
+import lsg.armor.ArmorItem;
 import lsg.armor.BlackWitchVeil;
 import lsg.armor.DragonSlayerLeggings;
+import lsg.bags.MediumBag;
 import lsg.weapons.Claw;
 import lsg.weapons.ShotGun;
 import lsg.weapons.Sword;
@@ -25,14 +29,15 @@ public class LearningSoulsGame {
 
     private Scanner scanner = new Scanner(System.in) ;
     static public final String BULLET_POINT = "∙";
+    static public final String TITLE = "###########################\n# THE LEARNING SOULS GAME #\n###########################";
 
     private ShotGun shotGun = new ShotGun("UltraPompe", 6, 20, 5, 100);
     private Sword sword = new Sword();
     private Hero hero = new Hero("Misfits");
     static Monster monstre1 = new Lycanthrope("Lycan");
     static Claw claw = new Claw("Bloody Claw", 20, 30, 5, 100);
-    private BlackWitchVeil blackWitchVeil = new BlackWitchVeil("Black Witch Veil", (float) 4.6);
-    private DragonSlayerLeggings dragonSlayerLeggings = new DragonSlayerLeggings("Dragon Slayer Leggings", (float) 10);
+    private BlackWitchVeil blackWitchVeil = new BlackWitchVeil();
+    private DragonSlayerLeggings dragonSlayerLeggings = new DragonSlayerLeggings();
     static Monster lycanthrope = new Lycanthrope("Lycanthrope");
     static Ring ring = new DragonSlayerRing();
     static Consumable burger = new Hamburger();
@@ -42,8 +47,11 @@ public class LearningSoulsGame {
     public static void main(String[] args) {
         LearningSoulsGame game = new LearningSoulsGame();
         game.title();
-        game.init();
-        game.play_v3();
+        game.testBag();
+    }
+
+    public void title(){
+        System.out.println(TITLE);
     }
 
     private void refresh(Character adversaire) {
@@ -133,10 +141,11 @@ public class LearningSoulsGame {
     }
 
     public void createExhaustedHero() {
-        hero = new Hero("Misfits");
+        hero = new Hero("Misfits épuisé");
         hero.getHitWith(99);
         Weapon GrosseArme = new Weapon("Grosse arme", 0, 0, 1000, 100);
         hero.setWeapon(GrosseArme);
+        hero.attack();
         System.out.println(hero.toString());
     }
 
@@ -153,9 +162,32 @@ public class LearningSoulsGame {
         }
     }
 
-    public void title(){
-        System.out.println("###########################");
-        System.out.println("# THE LEARNING SOULS GAME #");
-        System.out.println("###########################");
+    public void testBag() {
+        createExhaustedHero();
+        Sword sword = new Sword();
+        BlackWitchVeil blackWitchVeil = new BlackWitchVeil();
+        RingOfDeath ringOfDeath = new RingOfDeath();
+        Whisky whisky = new Whisky();
+        Hamburger hamburger = new Hamburger();
+        Wine wine = new Wine();
+        MediumBag mediumBag = new MediumBag();
+
+
+        hero.pickUp(sword);
+        hero.pickUp(blackWitchVeil);
+        hero.pickUp(ringOfDeath);
+        System.out.println("----- INVENTAIRE -----");
+        hero.printBag();
+        hero.setBag(mediumBag);
+        hero.printBag();
+        hero.equip(ringOfDeath, 1);
+        hero.equip(blackWitchVeil, 1);
+        hero.pickUp(whisky);
+        hero.pickUp(wine);
+        hero.pickUp(hamburger);
+        hero.printBag();
+        hero.fastEat();
     }
+
+
 }

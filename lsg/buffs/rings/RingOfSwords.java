@@ -9,12 +9,12 @@ public class RingOfSwords extends Ring{
 		super("Ring of Swords", 10) ;
 	}
 	
-//	@Override
-//	public float computeBuffValue() {
-//		if (hero != null && (hero.getWeapon() instanceof Sword) )  return power ;
-//		else return 0f ;
-//
-//	}
+	@Override
+	public float computeBuffValue() {
+		if (hero != null && (hero.getWeapon() instanceof Sword) )  return power ;
+		else return 0f ;
+
+	}
 	
 	/**
 	 * Un test...

@@ -4,13 +4,17 @@ import java.util.Calendar;
 
 import lsg.buffs.BuffItem;
 
+/**
+ *  Talisman est la classe représentant un talisman. Il hérite de BuffItem.
+ */
 public class Talisman extends BuffItem {
-	
+
 	private float buff ;
 	private int start, end ;
 	private String name;
 	
 	public Talisman(String name, float buff, int start, int end) {
+		super();
 		this.name = name ;
 		this.buff = buff ;
 		this.start = start ;
