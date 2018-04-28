@@ -7,6 +7,7 @@ import lsg.bags.Bag;
 import lsg.bags.Collectible;
 import lsg.bags.SmallBag;
 import lsg.buffs.rings.RingOfSwords;
+import lsg.exceptions.WeaponNullException;
 import lsg.helpers.Dice;
 import lsg.weapons.Weapon;
 import consumables.repair.RepairKit;
@@ -303,11 +304,11 @@ public abstract class Character {
     /**
      *  Attaque un adversaire
      *
-     * @return int      Les dégâts provoqués.
-     *
+     * @return int                  Les dégâts provoqués.
+     * @throws WeaponNullException  Si jamais l'arme est null
      */
-    public int attack(){
-        return attackWith(this.weapon);
+    public int attack() throws WeaponNullException {
+        return attackWith(weapon);
     }
 
     /**
@@ -373,7 +374,7 @@ public abstract class Character {
      * @param consumable     Peut être une instance de Drink, de Food ou de RepairKit.
      *
      */
-    public void use(Consumable consumable) {
+    public void use(Consumable consumable) throws WeaponNullException {
         if(consumable instanceof Drink){
             drink((Drink) consumable);
         }
@@ -381,7 +382,11 @@ public abstract class Character {
             eat((Food) consumable);
         }
         else if (consumable instanceof RepairKit) {
-            repairWeaponWith((RepairKit) consumable);
+            try {
+                repairWeaponWith((RepairKit) consumable);
+            } catch (WeaponNullException weaponNullException) {
+                weaponNullException.printStackTrace();
+            }
         }
     }
 
@@ -391,7 +396,9 @@ public abstract class Character {
      * @param kit
      *
      */
-    private void repairWeaponWith(RepairKit kit) {
+    private void repairWeaponWith(RepairKit kit) throws WeaponNullException {
+        if (this.weapon == null)
+            throw new WeaponNullException();
         this.weapon.repairWith(kit);
         System.out.println(this.name + " repairs " + weapon.toString() + " with " + kit.toString());
     }
@@ -399,7 +406,7 @@ public abstract class Character {
     /**
      *  Utilise la méthode use()
      */
-    public void consume() {
+    public void consume() throws WeaponNullException {
         use(consumable);
     }
 
@@ -513,7 +520,48 @@ public abstract class Character {
             System.out.println("Rien n'a été équipé!");
     }
 
-    abstract int attackWith(Weapon weapon);
+    public void printConsumable() {
+        System.out.println("CONSUMABLE : " + consumable);
+    }
+
+    /**
+     *  Renvoie le nombre de dégât que l'arme inflige. Utilise le dé de 101 faces pour générer un
+     *  montant de dégâts aléatoire. Réduit la stamina du héro qui l'utilise.
+     *  Baisse de 1 la durabilité du l'arme
+     *
+     * @param weapon    Instance de l'arme utilisé.
+     * @return int      Montant de dégât aléatoire en fonction des dégâts de l'arme.
+     *
+     * @throws WeaponNullException  Si jamais l'arme est null
+     */
+    private int attackWith(Weapon weapon) throws WeaponNullException {
+
+        if (weapon == null)
+            throw new WeaponNullException();
+        if (weapon.isBroken())
+            return 0;
+        else {
+            int diceCaract = diceCharact.roll();
+            int damage = Math.round(weapon.getMinDamage() + ((weapon.getMaxDamage() - weapon.getMinDamage()) * (float)diceCaract/100));
+            damage += Math.round(damage * (1+(computeBuff()/100)));
+            if (getStamina() >= weapon.getStamCost()){
+                setStamina(getStamina() - weapon.getStamCost());
+                weapon.use();
+                return Math.round(damage);
+            }
+            else if (getStamina() > 0) {
+                damage *= (float)getStamina()/weapon.getStamCost();
+                setStamina(0);
+                weapon.use();
+                return Math.round(damage);
+            }
+            else {
+                weapon.use();
+                return 0;
+            }
+
+        }
+    }
     abstract float computeProtection();
     abstract float computeBuff();
 

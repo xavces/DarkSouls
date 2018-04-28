@@ -6,6 +6,7 @@ import consumables.food.Food;
 import consumables.repair.RepairKit;
 import lsg.armor.ArmorItem;
 import lsg.bags.Collectible;
+import lsg.exceptions.WeaponNullException;
 import lsg.weapons.Weapon;
 import lsg.buffs.rings.*;
 
@@ -86,40 +87,7 @@ public class Hero extends Character {
         super.setMaxStamina(50);
     }
 
-    /**
-     *  Renvoie le nombre de dégât que l'arme inflige. Utilise le dé de 101 faces pour générer un
-     *  montant de dégâts aléatoire. Réduit la stamina du héro qui l'utilise.
-     *  Baisse de 1 la durabilité du l'arme
-     *
-     * @param weapon    Instance de l'arme utilisé.
-     * @return int      Montant de dégât aléatoire en fonction des dégâts de l'arme.
-     */
-    @Override
-    int attackWith(Weapon weapon) {
-        if (weapon.isBroken())
-            return 0;
-        else {
-            int diceCaract = diceCharact.roll();
-            int damage = Math.round(weapon.getMinDamage() + ((weapon.getMaxDamage() - weapon.getMinDamage()) * (float)diceCaract/100));
-            damage += Math.round(damage * (1+(computeBuff()/100)));
-            if (super.getStamina() >= weapon.getStamCost()){
-                super.setStamina(super.getStamina() - weapon.getStamCost());
-                weapon.use();
-                return Math.round(damage);
-            }
-            else if (super.getStamina() > 0) {
-                damage *= (float)super.getStamina()/weapon.getStamCost();
-                super.setStamina(0);
-                weapon.use();
-                return Math.round(damage);
-            }
-            else {
-                weapon.use();
-                return 0;
-            }
 
-        }
-    }
 
     /**
      *  Permet d'équiper un item au héro.
@@ -252,7 +220,7 @@ public class Hero extends Character {
      *
      * @param consumable      Class du consommable à chercher dans le sac.
      */
-    private Consumable fastUseFirst(Class<? extends Consumable> consumable) {
+    private Consumable fastUseFirst(Class<? extends Consumable> consumable) throws WeaponNullException {
         for (Collectible collectible: bag.getItems()) {
             if (consumable.isInstance(collectible)) {
                 use((Consumable) collectible);
@@ -271,7 +239,7 @@ public class Hero extends Character {
      *
      * @return Consumable       Le consommable Drink utilisé
      */
-    public Drink fastDrink(){
+    public Drink fastDrink() throws WeaponNullException {
         System.out.println(getName() + " drinks FAST : " );
         return (Drink)fastUseFirst(Drink.class);
     }
@@ -281,7 +249,7 @@ public class Hero extends Character {
      *
      * @return Food       Le consommable Food utilisé
      */
-    public Food fastEat(){
+    public Food fastEat() throws WeaponNullException {
         System.out.println(getName() + " eats FAST : " );
         return (Food)fastUseFirst(Food.class);
     }
@@ -291,9 +259,13 @@ public class Hero extends Character {
      *
      * @return Consumable       Le consommable Repair utilisé
      */
-    public RepairKit fastRepair(){
+    public RepairKit fastRepair() throws WeaponNullException {
         System.out.println(getName() + " repairs FAST : " );
         return (RepairKit) fastUseFirst(RepairKit.class);
+    }
+
+    public void printRings() {
+        System.out.println("RINGS   1:" + ring[0] + "           2:" + ring[1]);
     }
 
     @Override

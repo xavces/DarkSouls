@@ -12,6 +12,7 @@ import lsg.armor.ArmorItem;
 import lsg.armor.BlackWitchVeil;
 import lsg.armor.DragonSlayerLeggings;
 import lsg.bags.MediumBag;
+import lsg.exceptions.WeaponNullException;
 import lsg.weapons.Claw;
 import lsg.weapons.ShotGun;
 import lsg.weapons.Sword;
@@ -31,42 +32,49 @@ public class LearningSoulsGame {
     static public final String BULLET_POINT = "∙";
     static public final String TITLE = "###########################\n# THE LEARNING SOULS GAME #\n###########################";
 
-    private ShotGun shotGun = new ShotGun("UltraPompe", 6, 20, 5, 100);
-    private Sword sword = new Sword();
-    private Hero hero = new Hero("Misfits");
-    static Monster monstre1 = new Lycanthrope("Lycan");
-    static Claw claw = new Claw("Bloody Claw", 20, 30, 5, 100);
-    private BlackWitchVeil blackWitchVeil = new BlackWitchVeil();
-    private DragonSlayerLeggings dragonSlayerLeggings = new DragonSlayerLeggings();
-    static Monster lycanthrope = new Lycanthrope("Lycanthrope");
-    static Ring ring = new DragonSlayerRing();
-    static Consumable burger = new Hamburger();
-    static Talisman moonStone = new MoonStone();
+    private Hero hero;
+    private Monster monster;
+//    private ShotGun shotGun = new ShotGun("UltraPompe", 6, 20, 5, 100);
+//    private Sword sword = new Sword();
+//    private Hero hero = new Hero("Misfits");
+//    static Monster monstre1 = new Lycanthrope("Lycan");
+//    static Claw claw = new Claw("Bloody Claw", 20, 30, 5, 100);
+//    private BlackWitchVeil blackWitchVeil = new BlackWitchVeil();
+//    private DragonSlayerLeggings dragonSlayerLeggings = new DragonSlayerLeggings();
+//    static Monster lycanthrope = new Lycanthrope("Lycanthrope");
+//    static Ring ring = new DragonSlayerRing();
+//    static Consumable burger = new Hamburger();
+//    static Talisman moonStone = new MoonStone();
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws WeaponNullException {
         LearningSoulsGame game = new LearningSoulsGame();
         game.title();
-        game.testBag();
+        game.init();
+        game.testExceptions();
     }
 
     public void title(){
         System.out.println(TITLE);
     }
 
-    private void refresh(Character adversaire) {
+    private void refresh() {
         System.out.println(hero.toString());
-        System.out.println(BULLET_POINT + hero.getWeapon().toString());
-        System.out.println(BULLET_POINT + hero.getConsumable());
+        System.out.println(hero.armorToString());
+        hero.printRings();
+        hero.printConsumable();
+        System.out.println(hero.getWeapon());
+        hero.printBag();
         System.out.println();
-        System.out.println(adversaire.toString());
+        System.out.println(monster.toString());
+        System.out.println(monster.getWeapon().toString());
     }
 
-    private void fight1v1(Character adversaire) {
+    private void fight1v1(Character adversaire) throws WeaponNullException {
 
         while (hero.isAlive() && adversaire.isAlive()) {
 
-            refresh(adversaire);
+            refresh();
 
             int dmg = 0;
             int dmgFinal = 0;
@@ -77,12 +85,17 @@ public class LearningSoulsGame {
             }
 
             if (action == 1) {
-                dmg = hero.attack();
+                try {
+                    dmg = hero.attack();
+                } catch (WeaponNullException weaponNullException) {
+                    System.out.println("WARNING : no weapon has been equipped !!!");
+                    dmg = 0;
+                }
                 dmgFinal = adversaire.getHitWith(dmg);
                 adversaire.getHitWith(dmgFinal);
 
                 System.out.println(hero.getName() + " attacks " + adversaire.getName() + " with " + hero.getWeapon() + "(ATTACK:" + dmg + " | DMG:" + dmgFinal);
-                refresh(adversaire);
+                //refresh();
             }
             else if (action == 2) {
                 hero.consume();
@@ -108,86 +121,52 @@ public class LearningSoulsGame {
             System.out.println("Le gagnant est : " + adversaire.getName());
     }
 
-    public void init() {
-        lycanthrope.setWeapon(claw);
-        lycanthrope.setTalisman(moonStone, 1);
-        monstre1.setWeapon(claw);
-        hero.setWeapon(sword);
-        hero.setArmorItem(blackWitchVeil, 1);
-        hero.setArmorItem(dragonSlayerLeggings, 2);
-        //hero.setRing(ring, 1);
-        hero.setConsumable(burger);
-        fight1v1(lycanthrope);
+    public void init() throws WeaponNullException {
+        hero = createExhaustedHero();
+        monster = new Monster();
+        monster.setWeapon(new Claw());
+        monster.setTalisman(new MoonStone(), 1);
+        hero.setWeapon(new Sword());
     }
 
-    public void play_v1() {
+
+    public void testExceptions() throws WeaponNullException {
+        hero.setWeapon(null);
+        fight1v1(monster);
+    }
+
+    public void play_v1() throws WeaponNullException {
         init();
-        fight1v1(monstre1);
+        fight1v1(monster);
     }
 
-    public void play_v2() {
-        monstre1.setWeapon(claw);
-        hero.setWeapon(sword);
-        hero.setArmorItem(blackWitchVeil, 1);
-        fight1v1(monstre1);
+    public void play_v2() throws WeaponNullException {
+        monster.setWeapon(new Claw());
+        hero.setWeapon(new Sword());
+        hero.setArmorItem(new BlackWitchVeil(), 1);
+        fight1v1(monster);
     }
 
-    public void play_v3() {
-        hero.setWeapon(sword);
-        hero.setArmorItem(blackWitchVeil, 1);
-        hero.setArmorItem(dragonSlayerLeggings, 2);
-        hero.setRing(ring, 1);
-        fight1v1(lycanthrope);
+    public void play_v3() throws WeaponNullException {
+        hero.setWeapon(new Claw());
+        hero.setArmorItem(new BlackWitchVeil(), 1);
+        hero.setArmorItem(new DragonSlayerLeggings(), 2);
+        hero.setRing(new DragonSlayerRing(), 1);
+        fight1v1(monster);
     }
 
-    public void createExhaustedHero() {
+    public Hero createExhaustedHero() throws WeaponNullException {
         hero = new Hero("Misfits épuisé");
         hero.getHitWith(99);
         Weapon GrosseArme = new Weapon("Grosse arme", 0, 0, 1000, 100);
         hero.setWeapon(GrosseArme);
-        hero.attack();
-        System.out.println(hero.toString());
-    }
-
-    public void aTable() {
-        MenuBestOfV4 menuBestOfV4 = new MenuBestOfV4();
-        menuBestOfV4.MenuBestOfV4();
-        Iterator<Consumable> i = menuBestOfV4.iterator();
-        while (i.hasNext()) {
-            scanner.nextLine();
-            Consumable consumable = i.next();
-            hero.use(consumable);
-            System.out.println(hero.toString());
-            System.out.println("Après utilisation : " + consumable.toString());
+        try {
+            hero.attack();
+        } catch (WeaponNullException weaponNullException) {
+            weaponNullException.printStackTrace();
         }
+        System.out.println(hero.toString());
+        return  hero;
     }
-
-    public void testBag() {
-        createExhaustedHero();
-        Sword sword = new Sword();
-        BlackWitchVeil blackWitchVeil = new BlackWitchVeil();
-        RingOfDeath ringOfDeath = new RingOfDeath();
-        Whisky whisky = new Whisky();
-        Hamburger hamburger = new Hamburger();
-        Wine wine = new Wine();
-        MediumBag mediumBag = new MediumBag();
-
-
-        hero.pickUp(sword);
-        hero.pickUp(blackWitchVeil);
-        hero.pickUp(ringOfDeath);
-        System.out.println("----- INVENTAIRE -----");
-        hero.printBag();
-        hero.setBag(mediumBag);
-        hero.printBag();
-        hero.equip(ringOfDeath, 1);
-        hero.equip(blackWitchVeil, 1);
-        hero.pickUp(whisky);
-        hero.pickUp(wine);
-        hero.pickUp(hamburger);
-        hero.printBag();
-        hero.fastEat();
-    }
-
 
 }

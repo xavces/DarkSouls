@@ -111,40 +111,6 @@ public class Monster extends Character {
     }
 
     /**
-     *  Renvoie le nombre de dégât que l'arme inflige. Utilise le dé de 101 faces pour générer un
-     *  montant de dégâts aléatoire. Réduit la stamina du héro qui l'utilise.
-     *  Baisse de 1 la durabilité du l'arme
-     *
-     * @param weapon    Instance de l'arme utilisé.
-     * @return int      Montant de dégât aléatoire en fonction des dégâts de l'arme.
-     */
-    @Override
-    int attackWith(Weapon weapon) {
-        if (weapon.isBroken())
-            return 0;
-        else {
-            int diceCaract = diceCharact.roll();
-            int damage = Math.round(weapon.getMinDamage() + ((weapon.getMaxDamage() - weapon.getMinDamage()) * (float)diceCaract/100));
-            if (getStamina() >= weapon.getStamCost()){
-                setStamina(getStamina() - weapon.getStamCost());
-                weapon.use();
-                return Math.round(damage);
-            }
-            else if (getStamina() > 0) {
-                damage *= (float)getStamina()/weapon.getStamCost();
-                setStamina(0);
-                weapon.use();
-                return Math.round(damage);
-            }
-            else {
-                weapon.use();
-                return 0;
-            }
-
-        }
-    }
-
-    /**
      *  Renvoie le total de buff du talisman
      *
      * @return float    Le total de buff

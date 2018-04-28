@@ -23,3 +23,7 @@ TP 3
 L'erreur est présente car on ne déclare pas la fonction abstraite computeProtection() dans la class Hero et Monster. 
 Il faut donc @Override computeProtection() dans Hero et Monster
 
+TP 6 
+
+2.2 : Exception dans le main : java.lang.NullPointerException
+at characters.Hero.attackWith(Hero.java:99)
