@@ -1,6 +1,7 @@
 package lsg.weapons;
 
 import consumables.repair.RepairKit;
+import lsg.exceptions.ConsumeNullException;
 
 /**
  * Weapon est la classe qui représente une arme. Il implémente l'interface Collectible pour gérer le poids de l'arme
@@ -186,7 +187,9 @@ public class Weapon implements lsg.bags.Collectible {
     /**
      *
      */
-    public void repairWith(RepairKit kit) {
+    public void repairWith(RepairKit kit) throws ConsumeNullException {
+        if (kit == null)
+            throw new ConsumeNullException();
         this.durability = this.durability + kit.use();
     }
 }

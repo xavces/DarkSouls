@@ -8,11 +8,12 @@ import consumables.Consumable;
 import consumables.MenuBestOfV4;
 import consumables.drinks.Whisky;
 import consumables.drinks.Wine;
+import consumables.repair.RepairKit;
 import lsg.armor.ArmorItem;
 import lsg.armor.BlackWitchVeil;
 import lsg.armor.DragonSlayerLeggings;
 import lsg.bags.MediumBag;
-import lsg.exceptions.WeaponNullException;
+import lsg.exceptions.*;
 import lsg.weapons.Claw;
 import lsg.weapons.ShotGun;
 import lsg.weapons.Sword;
@@ -34,7 +35,7 @@ public class LearningSoulsGame {
 
     private Hero hero;
     private Monster monster;
-//    private ShotGun shotGun = new ShotGun("UltraPompe", 6, 20, 5, 100);
+    private ShotGun shotGun = new ShotGun("UltraPompe", 6, 20, 5, 0);
 //    private Sword sword = new Sword();
 //    private Hero hero = new Hero("Misfits");
 //    static Monster monstre1 = new Lycanthrope("Lycan");
@@ -47,7 +48,7 @@ public class LearningSoulsGame {
 //    static Talisman moonStone = new MoonStone();
 
 
-    public static void main(String[] args) throws WeaponNullException {
+    public static void main(String[] args) throws WeaponNullException, WeaponBrokenException, StaminaEmptyException, ConsumeNullException, NoBagException, BagFullException {
         LearningSoulsGame game = new LearningSoulsGame();
         game.title();
         game.init();
@@ -58,8 +59,8 @@ public class LearningSoulsGame {
         System.out.println(TITLE);
     }
 
-    private void refresh() {
-        System.out.println(hero.toString());
+    private void refresh() throws NoBagException {
+        //System.out.println(hero.toString());
         System.out.println(hero.armorToString());
         hero.printRings();
         hero.printConsumable();
@@ -70,7 +71,7 @@ public class LearningSoulsGame {
         System.out.println(monster.getWeapon().toString());
     }
 
-    private void fight1v1(Character adversaire) throws WeaponNullException {
+    private void fight1v1(Character adversaire) throws WeaponNullException, WeaponBrokenException, StaminaEmptyException, ConsumeNullException, NoBagException {
 
         while (hero.isAlive() && adversaire.isAlive()) {
 
@@ -90,15 +91,27 @@ public class LearningSoulsGame {
                 } catch (WeaponNullException weaponNullException) {
                     System.out.println("WARNING : no weapon has been equipped !!!");
                     dmg = 0;
+                } catch (WeaponBrokenException weaponBrokenException) {
+                    dmg = 0;
+                } catch (StaminaEmptyException staminaEmptyException) {
+                    dmg = 0;
                 }
                 dmgFinal = adversaire.getHitWith(dmg);
                 adversaire.getHitWith(dmgFinal);
 
-                System.out.println(hero.getName() + " attacks " + adversaire.getName() + " with " + hero.getWeapon() + "(ATTACK:" + dmg + " | DMG:" + dmgFinal);
+                System.out.println(hero.getName() + " attacks " + adversaire.getName() + " with " + hero.getWeapon() + "(ATTACK:" + dmg + " | DMG:" + dmgFinal + ")");
                 //refresh();
             }
             else if (action == 2) {
-                hero.consume();
+                try {
+                    hero.consume();
+                } catch (ConsumeNullException consumeNullException) {
+
+                } catch (ConsumeEmptyException consumeEmptyException) {
+
+                } catch (ConsumeRepairNullWeaponException e) {
+                    System.out.println("IMPOSSIBLE ACTION : no weapon has been equipped !!!");
+                }
             }
 
             if (adversaire.getLife() <= 0) {
@@ -109,7 +122,11 @@ public class LearningSoulsGame {
             System.out.println("Tour du : " + adversaire.getName());
             scanner.nextLine();
 
-            dmg = adversaire.attack();
+            try {
+                dmg = adversaire.attack();
+            } catch (StaminaEmptyException staminaEmptyException) {
+                dmg = 0;
+            }
             hero.getHitWith(dmg);
             System.out.println(adversaire.getName() + " attacks " + hero.getName() + " with " + adversaire.getWeapon() + "(ATTACK:" + dmg + " | DMG:" + dmg);
             scanner.nextLine();
@@ -130,24 +147,26 @@ public class LearningSoulsGame {
     }
 
 
-    public void testExceptions() throws WeaponNullException {
+    public void testExceptions() throws WeaponNullException, WeaponBrokenException, StaminaEmptyException, ConsumeNullException, BagFullException, NoBagException {
         hero.setWeapon(null);
+        hero.setConsumable(new RepairKit());
+        hero.setBag(new MediumBag());
         fight1v1(monster);
     }
 
-    public void play_v1() throws WeaponNullException {
+    public void play_v1() throws WeaponNullException, WeaponBrokenException, StaminaEmptyException, ConsumeNullException, NoBagException {
         init();
         fight1v1(monster);
     }
 
-    public void play_v2() throws WeaponNullException {
+    public void play_v2() throws WeaponNullException, WeaponBrokenException, StaminaEmptyException, ConsumeNullException, NoBagException {
         monster.setWeapon(new Claw());
         hero.setWeapon(new Sword());
         hero.setArmorItem(new BlackWitchVeil(), 1);
         fight1v1(monster);
     }
 
-    public void play_v3() throws WeaponNullException {
+    public void play_v3() throws WeaponNullException, WeaponBrokenException, StaminaEmptyException, ConsumeNullException, NoBagException {
         hero.setWeapon(new Claw());
         hero.setArmorItem(new BlackWitchVeil(), 1);
         hero.setArmorItem(new DragonSlayerLeggings(), 2);
@@ -164,6 +183,10 @@ public class LearningSoulsGame {
             hero.attack();
         } catch (WeaponNullException weaponNullException) {
             weaponNullException.printStackTrace();
+        } catch (WeaponBrokenException e) {
+            e.printStackTrace();
+        } catch (StaminaEmptyException e) {
+            e.printStackTrace();
         }
         System.out.println(hero.toString());
         return  hero;

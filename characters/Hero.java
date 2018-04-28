@@ -6,7 +6,7 @@ import consumables.food.Food;
 import consumables.repair.RepairKit;
 import lsg.armor.ArmorItem;
 import lsg.bags.Collectible;
-import lsg.exceptions.WeaponNullException;
+import lsg.exceptions.*;
 import lsg.weapons.Weapon;
 import lsg.buffs.rings.*;
 
@@ -189,7 +189,9 @@ public class Hero extends Character {
      * @param item      Armure à équiper
      * @param slot      Slot à utiliser pour placer l'item
      */
-    public void equip(ArmorItem item, int slot) {
+    public void equip(ArmorItem item, int slot) throws NoBagException {
+        if (bag == null)
+            throw new NoBagException();
         if(pullOut(item) != null) {
             this.setArmorItem(item, slot);
             System.out.println(this.getName() + " équipe " + item.toString() + " de son sac");
@@ -204,7 +206,9 @@ public class Hero extends Character {
      * @param ring      Anneau à équiper
      * @param slot      Slot à utiliser pour placer l'anneau
      */
-    public void equip(Ring ring, int slot) {
+    public void equip(Ring ring, int slot) throws NoBagException {
+        if (bag == null)
+            throw new NoBagException();
         if(pullOut(ring) != null) {
             this.setRing(ring, slot);
             System.out.println(this.getName() + " équipe " + ring.toString() + " de son sac");
@@ -220,7 +224,7 @@ public class Hero extends Character {
      *
      * @param consumable      Class du consommable à chercher dans le sac.
      */
-    private Consumable fastUseFirst(Class<? extends Consumable> consumable) throws WeaponNullException {
+    private Consumable fastUseFirst(Class<? extends Consumable> consumable) throws WeaponNullException, ConsumeNullException, ConsumeEmptyException, ConsumeRepairNullWeaponException, NoBagException {
         for (Collectible collectible: bag.getItems()) {
             if (consumable.isInstance(collectible)) {
                 use((Consumable) collectible);
@@ -239,9 +243,13 @@ public class Hero extends Character {
      *
      * @return Consumable       Le consommable Drink utilisé
      */
-    public Drink fastDrink() throws WeaponNullException {
+    public Drink fastDrink() throws WeaponNullException, ConsumeNullException, ConsumeEmptyException, NoBagException {
         System.out.println(getName() + " drinks FAST : " );
-        return (Drink)fastUseFirst(Drink.class);
+        try {
+            return (Drink)fastUseFirst(Drink.class);
+        } catch (ConsumeRepairNullWeaponException consumeRepairNullWeaponException) {
+            return null;
+        }
     }
 
     /**
@@ -249,9 +257,14 @@ public class Hero extends Character {
      *
      * @return Food       Le consommable Food utilisé
      */
-    public Food fastEat() throws WeaponNullException {
+    public Food fastEat() throws WeaponNullException, ConsumeNullException, ConsumeEmptyException, NoBagException {
         System.out.println(getName() + " eats FAST : " );
-        return (Food)fastUseFirst(Food.class);
+        try {
+            return (Food)fastUseFirst(Food.class);
+        } catch (ConsumeRepairNullWeaponException consumeRepairNullWeaponException) {
+            return null;
+        }
+
     }
 
     /**
@@ -259,7 +272,7 @@ public class Hero extends Character {
      *
      * @return Consumable       Le consommable Repair utilisé
      */
-    public RepairKit fastRepair() throws WeaponNullException {
+    public RepairKit fastRepair() throws WeaponNullException, ConsumeNullException, ConsumeEmptyException, ConsumeRepairNullWeaponException, NoBagException {
         System.out.println(getName() + " repairs FAST : " );
         return (RepairKit) fastUseFirst(RepairKit.class);
     }

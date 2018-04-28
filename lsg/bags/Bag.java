@@ -3,6 +3,7 @@ package lsg.bags;
 import consumables.food.Hamburger;
 import lsg.armor.BlackWitchVeil;
 import lsg.armor.DragonSlayerLeggings;
+import lsg.exceptions.BagFullException;
 import lsg.weapons.Sword;
 
 import java.util.HashSet;
@@ -107,11 +108,15 @@ public class Bag {
      *
      * @param from      Sac initial
      * @param into      Sac déstinataire
+     *
+     * @exception BagFullException      Si le sac ne peut accepter l'item à cause de son poids
      */
-    public static void transfer(Bag from, Bag into) {
+    public static void transfer(Bag from, Bag into) throws BagFullException {
+        if (from == null || into == null)
+            return;
         for(Collectible item: from.getItems()) {
             if (item.getWeight() > (from.getCapacity() + from.getWeight()))
-                return;
+                throw new BagFullException(from);
             into.push(item);
             from.pop(item);
         }
@@ -133,7 +138,7 @@ public class Bag {
         return string;
     }
 
-    public static void main (String[] args) {
+    public static void main (String[] args) throws BagFullException {
 
         SmallBag smallBag = new SmallBag();
         MediumBag mediumBag = new MediumBag();
