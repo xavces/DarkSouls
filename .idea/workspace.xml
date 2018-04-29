@@ -6,27 +6,108 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb7960e3-ab8e-4e5d-9f1e-d24537abe78f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lsg/exceptions/BagFullException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lsg/exceptions/ConsumeEmptyException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lsg/exceptions/ConsumeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lsg/exceptions/ConsumeNullException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lsg/exceptions/ConsumeRepairNullWeaponException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lsg/exceptions/NoBagException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lsg/exceptions/StaminaEmptyException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lsg/exceptions/WeaponBrokenException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/LearningSoulsGameApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/ImageFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/fonts/Arkham_reg.TTF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/BACKGROUND.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/3_KNIGHT.scml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/3_body_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/3_head_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/3_knight_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/3_left arm_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/3_left lag_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/3_right arm_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/3_right lag_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/3_shield_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/3_sword_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_ATTACK/_ATTACK_000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_ATTACK/_ATTACK_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_ATTACK/_ATTACK_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_ATTACK/_ATTACK_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_ATTACK/_ATTACK_004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_ATTACK/_ATTACK_005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_ATTACK/_ATTACK_006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_DIE/_DIE_000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_DIE/_DIE_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_DIE/_DIE_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_DIE/_DIE_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_DIE/_DIE_004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_DIE/_DIE_005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_DIE/_DIE_006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_HURT/_HURT_000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_HURT/_HURT_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_HURT/_HURT_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_HURT/_HURT_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_HURT/_HURT_004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_HURT/_HURT_005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_HURT/_HURT_006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_IDLE/_IDLE_000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_IDLE/_IDLE_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_IDLE/_IDLE_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_IDLE/_IDLE_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_IDLE/_IDLE_004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_IDLE/_IDLE_005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_IDLE/_IDLE_006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_JUMP/_JUMP_000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_JUMP/_JUMP_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_JUMP/_JUMP_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_JUMP/_JUMP_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_JUMP/_JUMP_004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_JUMP/_JUMP_005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_JUMP/_JUMP_006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_RUN/_RUN_000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_RUN/_RUN_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_RUN/_RUN_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_RUN/_RUN_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_RUN/_RUN_004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_RUN/_RUN_005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_RUN/_RUN_006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_WALK/_WALK_000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_WALK/_WALK_001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_WALK/_WALK_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_WALK/_WALK_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_WALK/_WALK_004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_WALK/_WALK_005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/3_KNIGHT/_WALK/_WALK_006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/active9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/passive1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/passive2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/passive3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/passive4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Skills/passive5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_ATTACK/Attack1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_ATTACK/Attack2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_ATTACK/Attack3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_ATTACK/Attack4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_ATTACK/Attack5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_ATTACK/Attack6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_DIE/Dead1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_DIE/Dead2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_DIE/Dead3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_DIE/Dead4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_DIE/Dead5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_DIE/Dead6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_DIE/Dead7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_DIE/Dead8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_HURT/Hurt1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_HURT/Hurt2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_HURT/Hurt3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lsg/graphics/images/craftpix/_PNG/Zombie1/_HURT/Hurt4.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/characters/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/characters/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/characters/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/characters/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lsg/LearningSoulsGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/lsg/LearningSoulsGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lsg/bags/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/lsg/bags/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lsg/exceptions/WeaponNullException.java" beforeDir="false" afterPath="$PROJECT_DIR$/lsg/exceptions/WeaponNullException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lsg/weapons/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/lsg/weapons/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DarkSouls/characters/Character.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DarkSouls/characters/Character.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DarkSouls/characters/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DarkSouls/characters/Hero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DarkSouls/lsg/LearningSoulsGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DarkSouls/lsg/LearningSoulsGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DarkSouls/lsg/bags/Bag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DarkSouls/lsg/bags/Bag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DarkSouls/lsg/exceptions/WeaponNullException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DarkSouls/lsg/exceptions/WeaponNullException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DarkSouls/lsg/weapons/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DarkSouls/lsg/weapons/Weapon.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,193 +124,92 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LearningSoulsGame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lsg/LearningSoulsGame.java">
+      <file leaf-file-name="LearningSoulsGameApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lsg/LearningSoulsGameApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="152" column="26" lean-forward="true" selection-start-line="152" selection-start-column="26" selection-end-line="152" selection-end-column="26" />
+            <state relative-caret-position="442">
+              <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1765#1766#0" expanded="true" />
-                <element signature="e#1806#1807#0" expanded="true" />
+                <element signature="e#1355#1356#0" expanded="true" />
+                <element signature="e#1392#1393#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Bag.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lsg/bags/Bag.java">
+      <file leaf-file-name="CreationPane.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lsg/graphics/panes/CreationPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="111" column="94" selection-start-line="111" selection-start-column="94" selection-end-line="111" selection-end-column="94" />
+            <state relative-caret-position="238">
+              <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2252#2253#0" expanded="true" />
-                <element signature="e#2319#2320#0" expanded="true" />
+                <element signature="e#222#223#0" expanded="true" />
+                <element signature="e#254#255#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConsumeEmptyException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lsg/exceptions/ConsumeEmptyException.java">
+      <file leaf-file-name="TitlePane.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lsg/graphics/panes/TitlePane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConsumeNullException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lsg/exceptions/ConsumeNullException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="11" lean-forward="true" selection-start-line="3" selection-end-line="10" selection-end-column="5" />
-              <folding>
-                <element signature="e#193#194#0" expanded="true" />
-                <element signature="e#250#251#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Character.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/characters/Character.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1570">
-              <caret line="540" column="39" selection-start-line="540" selection-start-column="39" selection-end-line="540" selection-end-column="39" />
+            <state relative-caret-position="261">
+              <caret line="29" column="64" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="docComment;class#Character#0" />
-                <element signature="e#768#875#0" />
-                <element signature="e#906#1013#0" />
-                <element signature="e#1042#1162#0" />
-                <element signature="e#1193#1310#0" />
-                <element signature="e#1341#1469#0" />
-                <element signature="e#1503#1580#0" />
-                <element signature="e#1631#1787#0" />
-                <element signature="e#1820#1945#0" />
-                <element signature="e#1986#2411#0" />
-                <element signature="e#2688#2791#0" />
-                <element signature="e#2854#2960#0" />
-                <element signature="e#3030#3134#0" />
-                <element signature="e#3194#3300#0" />
-                <element signature="e#3367#3482#0" />
-                <element signature="e#3548#3665#0" />
-                <element signature="e#3744#3863#0" />
-                <element signature="e#3929#4050#0" />
-                <element signature="e#4129#4255#0" />
-                <element signature="e#4327#4455#0" />
-                <element signature="e#4546#4652#0" />
-                <element signature="e#4719#4827#0" />
-                <element signature="e#4912#5038#0" />
-                <element signature="e#5117#5245#0" />
-                <element signature="e#5350#5547#0" />
-                <element signature="e#5761#5886#0" />
-                <element signature="e#6025#6155#0" />
-                <element signature="e#7023#7260#0" />
-                <element signature="e#7767#7875#0" />
-                <element signature="e#8217#8318#0" />
-                <element signature="e#8684#8870#0" />
-                <element signature="e#9224#9308#0" />
-                <element signature="e#9509#9553#0" />
-                <element signature="e#9618#9690#0" />
-                <element signature="e#9946#10013#0" />
-                <element signature="e#10291#10337#0" />
-                <element signature="e#10422#10518#0" />
-                <element signature="e#10598#10705#0" />
-                <element signature="e#10781#10891#0" />
-                <element signature="e#10975#11234#0" />
-                <element signature="e#11560#11699#0" />
-                <element signature="e#12033#12188#0" />
-                <element signature="e#13707#13708#0" expanded="true" />
-                <element signature="e#13771#13772#0" expanded="true" />
+                <element signature="e#1437#1438#0" expanded="true" />
+                <element signature="e#1474#1475#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BagFullException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lsg/exceptions/BagFullException.java">
+      <file leaf-file-name="LSGFont.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lsg/graphics/css/LSGFont.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="38" lean-forward="true" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-              <folding>
-                <element signature="e#330#331#0" expanded="true" />
-                <element signature="e#360#361#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WeaponBrokenException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lsg/exceptions/WeaponBrokenException.java">
+      <file leaf-file-name="GameLabel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lsg/graphics/widgets/texts/GameLabel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NoBagException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lsg/exceptions/NoBagException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="10" selection-end-column="5" />
-              <folding>
-                <element signature="e#170#171#0" expanded="true" />
-                <element signature="e#227#228#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConsumeRepairNullWeaponException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lsg/exceptions/ConsumeRepairNullWeaponException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-              <folding>
-                <element signature="e#210#211#0" expanded="true" />
-                <element signature="e#267#268#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Hero.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/characters/Hero.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1281">
-              <caret line="276" column="32" lean-forward="true" selection-start-line="276" selection-start-column="32" selection-end-line="276" selection-end-column="32" />
+            <state relative-caret-position="119">
+              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="docComment;class#Hero#0" />
-                <element signature="docComment;field#MAX_ARMOR_PIECES#0;class#Hero#0" />
-                <element signature="docComment;field#MAX_RING_PIECES#0;class#Hero#0" />
-                <element signature="docComment;field#stuff#0;class#Hero#0" />
-                <element signature="docComment;field#ring#0;class#Hero#0" />
-                <element signature="docComment;method#Hero#0;class#Hero#0" />
-                <element signature="docComment;method#Hero#1;class#Hero#0" />
-                <element signature="docComment;method#setArmorItem#0;class#Hero#0" />
-                <element signature="docComment;method#setRing#0;class#Hero#0" />
-                <element signature="docComment;method#getTotalArmor#0;class#Hero#0" />
-                <element signature="docComment;method#getTotalRing#0;class#Hero#0" />
-                <element signature="docComment;method#armorToString#0;class#Hero#0" />
-                <element signature="docComment;method#getArmorItems#0;class#Hero#0" />
-                <element signature="docComment;method#equip#0;class#Hero#0" />
-                <element signature="docComment;method#equip#1;class#Hero#0" />
-                <element signature="docComment;method#fastUseFirst#0;class#Hero#0" />
-                <element signature="docComment;method#fastDrink#0;class#Hero#0" />
-                <element signature="docComment;method#fastEat#0;class#Hero#0" />
-                <element signature="docComment;method#fastRepair#0;class#Hero#0" />
-                <element signature="e#8188#8189#0" expanded="true" />
-                <element signature="e#8274#8275#0" expanded="true" />
-                <element signature="e#8321#8322#0" expanded="true" />
-                <element signature="e#8364#8365#0" expanded="true" />
-                <element signature="e#8405#8406#0" expanded="true" />
-                <element signature="e#8447#8448#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lsg/graphics/ImageFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CSSFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lsg/graphics/CSSFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LSG.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lsg/graphics/css/LSG.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -239,6 +219,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="Class" />
       </list>
     </option>
@@ -254,7 +235,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/consumables/MenuBestOfV2.java" />
         <option value="$PROJECT_DIR$/consumables/MenuBestOfV4.java" />
         <option value="$PROJECT_DIR$/lsg/buffs/rings/RingOfDeath.java" />
         <option value="$PROJECT_DIR$/consumables/MenuBestOfV3.java" />
@@ -292,13 +272,20 @@
         <option value="$PROJECT_DIR$/lsg/weapons/Weapon.java" />
         <option value="$PROJECT_DIR$/lsg/exceptions/ConsumeEmptyException.java" />
         <option value="$PROJECT_DIR$/lsg/exceptions/ConsumeRepairNullWeaponException.java" />
-        <option value="$PROJECT_DIR$/lsg/LearningSoulsGame.java" />
         <option value="$PROJECT_DIR$/lsg/exceptions/ConsumeNullException.java" />
         <option value="$PROJECT_DIR$/lsg/exceptions/NoBagException.java" />
-        <option value="$PROJECT_DIR$/characters/Character.java" />
         <option value="$PROJECT_DIR$/characters/Hero.java" />
         <option value="$PROJECT_DIR$/lsg/exceptions/BagFullException.java" />
         <option value="$PROJECT_DIR$/lsg/bags/Bag.java" />
+        <option value="$PROJECT_DIR$/characters/Character.java" />
+        <option value="$PROJECT_DIR$/lsg/LearningSoulsGame.java" />
+        <option value="$PROJECT_DIR$/lsg/graphics/CSSFactory.java" />
+        <option value="$PROJECT_DIR$/lsg/graphics/css/LSG.css" />
+        <option value="$PROJECT_DIR$/lsg/graphics/css/LSGFont.css" />
+        <option value="$PROJECT_DIR$/lsg/graphics/widgets/texts/GameLabel.java" />
+        <option value="$PROJECT_DIR$/lsg/graphics/panes/TitlePane.java" />
+        <option value="$PROJECT_DIR$/lsg/LearningSoulsGameApplication.java" />
+        <option value="$PROJECT_DIR$/lsg/graphics/panes/CreationPane.java" />
       </list>
     </option>
   </component>
@@ -335,11 +322,6 @@
             <path>
               <item name="DarkSouls" type="b2602c69:ProjectViewProjectNode" />
               <item name="DarkSouls" type="462c0819:PsiDirectoryNode" />
-              <item name="characters" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DarkSouls" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DarkSouls" type="462c0819:PsiDirectoryNode" />
               <item name="lsg" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -353,6 +335,33 @@
               <item name="DarkSouls" type="462c0819:PsiDirectoryNode" />
               <item name="lsg" type="462c0819:PsiDirectoryNode" />
               <item name="exceptions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DarkSouls" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DarkSouls" type="462c0819:PsiDirectoryNode" />
+              <item name="lsg" type="462c0819:PsiDirectoryNode" />
+              <item name="graphics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DarkSouls" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DarkSouls" type="462c0819:PsiDirectoryNode" />
+              <item name="lsg" type="462c0819:PsiDirectoryNode" />
+              <item name="graphics" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DarkSouls" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DarkSouls" type="462c0819:PsiDirectoryNode" />
+              <item name="lsg" type="462c0819:PsiDirectoryNode" />
+              <item name="graphics" type="462c0819:PsiDirectoryNode" />
+              <item name="panes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DarkSouls" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DarkSouls" type="462c0819:PsiDirectoryNode" />
+              <item name="lsg" type="462c0819:PsiDirectoryNode" />
+              <item name="graphics" type="462c0819:PsiDirectoryNode" />
+              <item name="texts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DarkSouls" type="b2602c69:ProjectViewProjectNode" />
@@ -373,9 +382,16 @@
     <property name="SearchEverywhereHistoryKey" value="Iterator&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TRUSCELLI\Documents\Java\DarkSouls\lsg" />
+      <recent name="C:\Users\TRUSCELLI\Documents\Java\DarkSouls\lsg\graphics" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -389,7 +405,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LearningSoulsGame">
+  <component name="RunManager" selected="Application.LearningSoulsGameApplication">
     <configuration name="Unnamed" type="AndroidJUnit" factoryName="Android JUnit">
       <module name="DarkSouls" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -429,13 +445,13 @@
         </pattern>
       </extension>
     </configuration>
-    <configuration name="MenuBestOfV1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="consumables.MenuBestOfV1" />
+    <configuration name="LearningSoulsGameApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lsg.LearningSoulsGameApplication" />
       <module name="DarkSouls" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="consumables.*" />
+          <option name="PATTERN" value="lsg.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -506,18 +522,18 @@
     <list>
       <item itemvalue="Android JUnit.Unnamed" />
       <item itemvalue="Application.LearningSoulsGame" />
-      <item itemvalue="Application.MenuBestOfV1" />
       <item itemvalue="Application.MenuBestOfV2" />
       <item itemvalue="Application.MenuBestOfV3" />
       <item itemvalue="Application.Bag" />
+      <item itemvalue="Application.LearningSoulsGameApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LearningSoulsGameApplication" />
         <item itemvalue="Application.LearningSoulsGame" />
         <item itemvalue="Application.Bag" />
         <item itemvalue="Application.MenuBestOfV3" />
         <item itemvalue="Application.MenuBestOfV2" />
-        <item itemvalue="Application.MenuBestOfV1" />
       </list>
     </recent_temporary>
   </component>
@@ -532,7 +548,7 @@
       <option name="presentableId" value="Default" />
       <updated>1523379698856</updated>
       <workItem from="1523379701515" duration="4833000" />
-      <workItem from="1524500418600" duration="80201000" />
+      <workItem from="1524500418600" duration="91913000" />
     </task>
     <servers />
   </component>
@@ -554,7 +570,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85034000" />
+    <option name="totallyTimeSpent" value="96746000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -578,10 +594,10 @@
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3103082" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3103082" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3296875" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1296875" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1296875" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="5" side_tool="true" />
@@ -609,107 +625,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lsg/buffs/talismans/NoonGift.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-          <folding>
-            <element signature="e#92#93#0" expanded="true" />
-            <element signature="e#132#133#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/kotlin-runtime.jar!/kotlin/collections/collections.kotlin_builtins">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/java.base/java/util/HashSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="171" column="23" selection-start-line="171" selection-start-column="23" selection-end-line="171" selection-end-column="23" />
-          <folding>
-            <element signature="e#6486#6487#0" expanded="true" />
-            <element signature="e#6532#6533#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/consumables/MenuBestOfV4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/consumables/MenuBestOfV3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lsg/buffs/rings/RingOfSwords.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#142#143#0" expanded="true" />
-            <element signature="e#177#178#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/consumables/drinks/Wine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="82" selection-start-line="8" selection-start-column="82" selection-end-line="8" selection-end-column="82" />
-          <folding>
-            <element signature="e#81#82#0" expanded="true" />
-            <element signature="e#122#123#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/consumables/drinks/Whisky.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="3" />
-          <folding>
-            <element signature="e#86#87#0" expanded="true" />
-            <element signature="e#133#134#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/consumables/drinks/Coffee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="9" selection-end-column="7" />
-          <folding>
-            <element signature="e#86#87#0" expanded="true" />
-            <element signature="e#137#138#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/consumables/drinks/Drink.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="16" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/consumables/food/Hamburger.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1080,22 +995,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lsg/LearningSoulsGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="152" column="26" lean-forward="true" selection-start-line="152" selection-start-column="26" selection-end-line="152" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1765#1766#0" expanded="true" />
-            <element signature="e#1806#1807#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lsg/exceptions/ConsumeNullException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="11" lean-forward="true" selection-start-line="3" selection-end-line="10" selection-end-column="5" />
+          <caret line="8" column="11" selection-start-line="3" selection-end-line="10" selection-end-column="5" />
           <folding>
             <element signature="e#193#194#0" expanded="true" />
             <element signature="e#250#251#0" expanded="true" />
@@ -1106,7 +1009,7 @@
     <entry file="file://$PROJECT_DIR$/characters/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1281">
-          <caret line="276" column="32" lean-forward="true" selection-start-line="276" selection-start-column="32" selection-end-line="276" selection-end-column="32" />
+          <caret line="276" column="32" selection-start-line="276" selection-start-column="32" selection-end-line="276" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#Hero#0" />
@@ -1138,10 +1041,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lsg/exceptions/NoBagException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="10" selection-end-column="5" />
+          <folding>
+            <element signature="e#170#171#0" expanded="true" />
+            <element signature="e#227#228#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lsg/exceptions/WeaponBrokenException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lsg/exceptions/BagFullException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+          <folding>
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lsg/bags/Bag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="110" column="6" selection-start-line="110" selection-start-column="6" selection-end-line="110" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2252#2253#0" expanded="true" />
+            <element signature="e#2319#2320#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/characters/Character.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1570">
-          <caret line="540" column="39" selection-start-line="540" selection-start-column="39" selection-end-line="540" selection-end-column="39" />
+        <state relative-caret-position="194">
+          <caret line="508" column="17" selection-start-line="508" selection-start-column="17" selection-end-line="508" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#Character#0" />
@@ -1192,43 +1136,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lsg/exceptions/NoBagException.java">
+    <entry file="file://$PROJECT_DIR$/lsg/LearningSoulsGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <element signature="e#170#171#0" expanded="true" />
-            <element signature="e#227#228#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lsg/exceptions/WeaponBrokenException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lsg/exceptions/BagFullException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="38" lean-forward="true" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-          <folding>
-            <element signature="e#330#331#0" expanded="true" />
-            <element signature="e#360#361#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lsg/bags/Bag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="111" column="94" selection-start-line="111" selection-start-column="94" selection-end-line="111" selection-end-column="94" />
+        <state relative-caret-position="-1193">
+          <caret line="54" column="23" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2252#2253#0" expanded="true" />
-            <element signature="e#2319#2320#0" expanded="true" />
+            <element signature="e#1765#1766#0" expanded="true" />
+            <element signature="e#1806#1807#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lsg/graphics/css/LSG/css.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lsg/graphics/CSSFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lsg/graphics/css/LSG.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lsg/graphics/ImageFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lsg/graphics/css/LSGFont.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lsg/graphics/widgets/texts/GameLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/java.base/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="2066" selection-start-line="2066" selection-end-line="2066" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lsg/graphics/panes/TitlePane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="29" column="64" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1437#1438#0" expanded="true" />
+            <element signature="e#1474#1475#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lsg/LearningSoulsGameApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1355#1356#0" expanded="true" />
+            <element signature="e#1392#1393#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lsg/graphics/panes/CreationPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#222#223#0" expanded="true" />
+            <element signature="e#254#255#0" expanded="true" />
           </folding>
         </state>
       </provider>
