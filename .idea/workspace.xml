@@ -124,27 +124,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LearningSoulsGameApplication.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LearningSoulsGameApplication.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lsg/LearningSoulsGameApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
+            <state relative-caret-position="238">
+              <caret line="83" column="73" selection-start-line="83" selection-start-column="73" selection-end-line="83" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1355#1356#0" expanded="true" />
-                <element signature="e#1392#1393#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreationPane.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CreationPane.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lsg/graphics/panes/CreationPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+            <state relative-caret-position="-11">
+              <caret line="2" column="39" lean-forward="true" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#222#223#0" expanded="true" />
                 <element signature="e#254#255#0" expanded="true" />
               </folding>
@@ -155,12 +152,10 @@
       <file leaf-file-name="TitlePane.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lsg/graphics/panes/TitlePane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="29" column="64" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
+            <state relative-caret-position="329">
+              <caret line="49" column="58" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1437#1438#0" expanded="true" />
-                <element signature="e#1474#1475#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -190,7 +185,7 @@
       <file leaf-file-name="ImageFactory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lsg/graphics/ImageFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
+            <state relative-caret-position="-340">
               <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
             </state>
           </provider>
@@ -283,9 +278,9 @@
         <option value="$PROJECT_DIR$/lsg/graphics/css/LSG.css" />
         <option value="$PROJECT_DIR$/lsg/graphics/css/LSGFont.css" />
         <option value="$PROJECT_DIR$/lsg/graphics/widgets/texts/GameLabel.java" />
+        <option value="$PROJECT_DIR$/lsg/graphics/panes/CreationPane.java" />
         <option value="$PROJECT_DIR$/lsg/graphics/panes/TitlePane.java" />
         <option value="$PROJECT_DIR$/lsg/LearningSoulsGameApplication.java" />
-        <option value="$PROJECT_DIR$/lsg/graphics/panes/CreationPane.java" />
       </list>
     </option>
   </component>
@@ -341,27 +336,6 @@
               <item name="DarkSouls" type="462c0819:PsiDirectoryNode" />
               <item name="lsg" type="462c0819:PsiDirectoryNode" />
               <item name="graphics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DarkSouls" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DarkSouls" type="462c0819:PsiDirectoryNode" />
-              <item name="lsg" type="462c0819:PsiDirectoryNode" />
-              <item name="graphics" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DarkSouls" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DarkSouls" type="462c0819:PsiDirectoryNode" />
-              <item name="lsg" type="462c0819:PsiDirectoryNode" />
-              <item name="graphics" type="462c0819:PsiDirectoryNode" />
-              <item name="panes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DarkSouls" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DarkSouls" type="462c0819:PsiDirectoryNode" />
-              <item name="lsg" type="462c0819:PsiDirectoryNode" />
-              <item name="graphics" type="462c0819:PsiDirectoryNode" />
-              <item name="texts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DarkSouls" type="b2602c69:ProjectViewProjectNode" />
@@ -548,7 +522,7 @@
       <option name="presentableId" value="Default" />
       <updated>1523379698856</updated>
       <workItem from="1523379701515" duration="4833000" />
-      <workItem from="1524500418600" duration="91913000" />
+      <workItem from="1524500418600" duration="98093000" />
     </task>
     <servers />
   </component>
@@ -570,11 +544,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96746000" />
+    <option name="totallyTimeSpent" value="102926000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
@@ -594,10 +567,10 @@
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3103082" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3103082" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3296875" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1296875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1296875" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="5" side_tool="true" />
@@ -1169,17 +1142,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lsg/graphics/ImageFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lsg/graphics/css/LSGFont.css">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/java.base/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="2066" selection-start-line="2066" selection-end-line="2066" />
         </state>
       </provider>
     </entry>
@@ -1193,45 +1166,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/java.base/java/lang/Class.java">
+    <entry file="file://$PROJECT_DIR$/lsg/graphics/panes/CreationPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="2066" selection-start-line="2066" selection-end-line="2066" />
+        <state relative-caret-position="-11">
+          <caret line="2" column="39" lean-forward="true" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+          <folding>
+            <element signature="e#222#223#0" expanded="true" />
+            <element signature="e#254#255#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lsg/graphics/panes/TitlePane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="29" column="64" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
+        <state relative-caret-position="329">
+          <caret line="49" column="58" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1437#1438#0" expanded="true" />
-            <element signature="e#1474#1475#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lsg/graphics/ImageFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lsg/LearningSoulsGameApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="46" column="52" selection-start-line="46" selection-start-column="52" selection-end-line="46" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1355#1356#0" expanded="true" />
-            <element signature="e#1392#1393#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lsg/graphics/panes/CreationPane.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+          <caret line="83" column="73" selection-start-line="83" selection-start-column="73" selection-end-line="83" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
-            <element signature="e#254#255#0" expanded="true" />
           </folding>
         </state>
       </provider>

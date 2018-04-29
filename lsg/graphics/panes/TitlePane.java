@@ -24,7 +24,7 @@ public class TitlePane extends VBox {
         this.scene = scene;
         titleLabel = new GameLabel(title);
         this.getChildren().add(titleLabel);
-        titleLabel.setPadding(new Insets(10, 0, 0, 400));
+        titleLabel.setPadding(new Insets(10, 0, 0, 300));
     }
 
     public void zoomIn(EventHandler<ActionEvent> finishedHandler) {
@@ -38,12 +38,22 @@ public class TitlePane extends VBox {
         ParallelTransition pt = new ParallelTransition(tt, st);
         pt.setNode(titleLabel);
         pt.setCycleCount(1);
-        pt.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Animation terminée!");
-            }
-        });
+        pt.setOnFinished(finishedHandler);
+        pt.play();
+    }
+
+    public void zoomOut(EventHandler<ActionEvent> finishedHandler) {
+        ScaleTransition st = new ScaleTransition(ANIMATION_DURATION);
+        st.setToX(1);
+        st.setToY(1);
+
+        TranslateTransition tt = new TranslateTransition(ANIMATION_DURATION);
+        tt.setToY(1);
+
+        ParallelTransition pt = new ParallelTransition(tt, st);
+        pt.setNode(titleLabel);
+        pt.setCycleCount(1);
+        pt.setOnFinished(finishedHandler);
         pt.play();
     }
 }
