@@ -8,6 +8,10 @@ public class DragonSlayerLeggings extends ArmorItem {
         super("Dragon Slayer Leggings", 10.2f);
     }
 
+    /**
+     * On surcharge la méthode getWeight.
+     * @return
+     */
     @Override
     public int getWeight() {
         return 3;

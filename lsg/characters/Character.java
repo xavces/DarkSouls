@@ -187,6 +187,10 @@ public abstract class Character {
         return pvRetire;
     }
 
+    /**
+     * Utilise un item pour régénérer la Stamina d'un character
+     * @param drink
+     */
     private void drink(Drink drink){
         System.out.println(this.name + " drinks " + drink.toString());
         int regenerate = drink.use();
@@ -197,6 +201,10 @@ public abstract class Character {
         System.out.println("Après Utilisation : " + drink.toString());
     }
 
+    /**
+     * Utilise un item pour régénérer la vie d'un character
+     * @param food
+     */
     private void eat(Food food){
         System.out.println(this.name + " eats " + food.toString());
         int regenerate = food.use();
@@ -208,12 +216,20 @@ public abstract class Character {
 
     }
 
+    /**
+     * Utilise un item pour réparer l'arme d'un character
+     * @param kit
+     */
     private void repairWeaponWith(RepairKit kit){
         System.out.println(this.name + " repairs " + this.weapon.toString() + "with" + kit.toString());
         this.weapon.repairWith(kit);
         System.out.println("Après Utilisation : " + kit.toString());
     }
 
+    /**
+     * Fait appel au fonction de consommation selon le type de consommable
+     * @param consumable
+     */
     public void use(Consumable consumable){
         if(consumable instanceof Food)
             eat((Food)consumable);
@@ -228,15 +244,26 @@ public abstract class Character {
         this.use(this.getConsumable());
     }
 
+    /**
+     * Méthode qui ramasse un objet et le met dans le sac du character
+     * @param item
+     */
     public void pickUp(Collectible item){
         bag.push(item);
         System.out.println(this.name + " picks up " + item.toString());
     }
 
+    /**
+     * Méthode qui enleve un item du sac d'un character
+     * @param item
+     * @return item si trouvé, null sinon
+     */
     public Collectible pullOut(Collectible item){
         Collectible result = bag.pop(item);
         if( result != null)
             System.out.println(this.name + " pulls out " + item.toString());
+        else
+            System.out.println("Item not found");
         return result;
     }
 
@@ -244,18 +271,35 @@ public abstract class Character {
         System.out.println(bag.toString());
     }
 
+    /**
+     * On récupère la capacité du sac du character
+     * @return
+     */
     public int getBagCapacity(){
         return bag.getCapacity();
     }
 
+    /**
+     * On récupère le poid contenu dans le sac du character
+     * @return
+     */
     public int getBagWeight(){
         return bag.getWeight();
     }
 
+    /**
+     * On récupère la liste des objets contenu dans le sac du character
+     * @return
+     */
     public Collectible[] getBagItems(){
         return bag.getItems();
     }
 
+    /**
+     * On défini un sac pour le character
+     * @param bag
+     * @return
+     */
     public Bag setBag(Bag bag){
         Bag.transfer(this.bag, bag);
         Bag bagToReturn = this.bag;
@@ -264,20 +308,69 @@ public abstract class Character {
         return bagToReturn;
     }
 
+    /**
+     * Equipe une arme présente dans le sac
+     * @param weapon
+     */
     public void equip(Weapon weapon){
-        if(bag.contains(weapon)){
+        if(pullOut(weapon) != null) {
             this.setWeapon(weapon);
-            bag.pop(weapon);
-            System.out.println(this.getName() + " pulls out " + this.weapon.toString());
         }
     }
 
+    /**
+     * Equipe un consommable présent dans le sac
+     * @param consumable
+     */
     public void equip(Consumable consumable){
-        if(bag.contains(consumable)){
+        if(pullOut(consumable) != null){
             this.setConsumable(consumable);
-            bag.pop(consumable);
-            System.out.println(this.getName() + " pulls out " + this.consumable.toString());
         }
+    }
+
+    /**
+     * Méthode qui permet d'utiliser le premier consommable dans le sac du character d'un type précis
+     * @param type
+     * @return
+     */
+    private Consumable fastUseFirst(Class<? extends Consumable> type) {
+        for (Collectible collectible: bag.getItems()) {
+            if (type.isInstance(collectible)) {
+                use((Consumable) collectible);
+                if (((Consumable) collectible).getCapacity() <= 0){
+                    pullOut(collectible);
+                }
+                return (Consumable) collectible;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Méthode public qui utilise fastUseFirst avec une consommable de type Drink
+     * @return
+     */
+    public Drink fastDrink(){
+        System.out.println(getName() + " drinks FAST : " );
+        return (Drink)fastUseFirst(Drink.class);
+    }
+
+    /**
+     * Méthode public qui utilise fastUseFirst avec une consommable de type Food
+     * @return
+     */
+    public Food fastEat(){
+        System.out.println(getName() + " eats FAST : " );
+        return (Food)fastUseFirst(Food.class);
+    }
+
+    /**
+     * Méthode public qui utilise fastUseFirst avec une consommable de type RepairKit
+     * @return
+     */
+    public RepairKit fastRepair(){
+        System.out.println(getName() + " repairs FAST : " );
+        return (RepairKit) fastUseFirst(RepairKit.class);
     }
 
     abstract float computeProtection();

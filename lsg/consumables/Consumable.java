@@ -36,6 +36,10 @@ public class Consumable implements Collectible {
         return this.name + " [" + this.capacity + " " + this.stat + " point(s)]";
     }
 
+    /**
+     * Méthode qui utilise un consumable et met sa capacité à 0
+     * @return
+     */
     public int use(){
         int myCapacity = this.capacity;
         this.setCapacity(0);

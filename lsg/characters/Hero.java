@@ -122,6 +122,28 @@ public class Hero extends Character{
         System.out.println("TOTAL : "+hero.getTotalArmor());
     }
 
+    /**
+     * Méthode qui permet de sortir un item du sac et de l'équiper sur un slot précis
+     * @param item
+     * @param slot
+     */
+    public void equip(ArmorItem item, int slot){
+        if(pullOut(item) != null){
+            this.setArmorItem(item, slot);
+        }
+    }
+
+    /**
+     * Méthode qui permet de sortir un Ring du sac et de l'équiper sur un slot précis
+     * @param ring
+     * @param slot
+     */
+    public void equip(Ring ring, int slot){
+        if(pullOut(ring) != null){
+            this.setRing(ring, slot);
+        }
+    }
+
     @Override
     float computeProtection() {
         return this.getTotalArmor();

@@ -1,6 +1,7 @@
 package lsg;
 
 import lsg.armor.BlackWitchVeil;
+import lsg.bags.MediumBag;
 import lsg.buffs.rings.RingOfDeath;
 import lsg.buffs.rings.RingOfSwords;
 import lsg.characters.Hero;
@@ -8,6 +9,8 @@ import lsg.characters.Lycanthrope;
 import lsg.characters.Monster;
 import lsg.consumables.Consumable;
 import lsg.consumables.MenuBestOfV4;
+import lsg.consumables.drinks.Whisky;
+import lsg.consumables.drinks.Wine;
 import lsg.consumables.food.Hamburger;
 import lsg.helpers.Dice;
 import lsg.weapons.Claw;
@@ -56,7 +59,7 @@ public class LearningSoulsGame {
     private void refresh (){
         hero.printStats();
         System.out.println(BULLET_POINT + hero.getWeapon().toString());
-        System.out.println(BULLET_POINT + hero.getConsumable().toString());
+        System.out.println(BULLET_POINT + hero.getConsumable());
         monster.printStats();
     }
 
@@ -169,12 +172,42 @@ public class LearningSoulsGame {
         "##############################");
     }
 
+    public void testBag() {
+        createExhaustedHero();
+        Sword sword = new Sword();
+        BlackWitchVeil blackWitchVeil = new BlackWitchVeil();
+        RingOfDeath ringOfDeath = new RingOfDeath();
+        Whisky whisky = new Whisky();
+        Hamburger hamburger = new Hamburger();
+        Wine wine = new Wine();
+        MediumBag mediumBag = new MediumBag();
+
+
+        hero.pickUp(sword);
+        hero.pickUp(blackWitchVeil);
+        hero.pickUp(ringOfDeath);
+        System.out.println("----- INVENTAIRE -----");
+        hero.printBag();
+        hero.setBag(mediumBag);
+        hero.printBag();
+        hero.equip(ringOfDeath, 1);
+        hero.equip(blackWitchVeil, 1);
+        hero.pickUp(whisky);
+        hero.pickUp(wine);
+        hero.pickUp(hamburger);
+        hero.printBag();
+        refresh();
+        hero.fastEat();
+    }
+
     public static void main(String[] args) {
         LearningSoulsGame lsg = new LearningSoulsGame();
         //lsg.createExhaustedHero();
         //lsg.aTable();
         lsg.title();
-        lsg.play_v3();
+        //lsg.play_v3();
+        lsg.testBag();
+        lsg.refresh();
     }
 
 

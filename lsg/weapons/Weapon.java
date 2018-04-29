@@ -74,12 +74,20 @@ public class Weapon implements Collectible {
                 " " +STAM_STAT_STRING + ":" + this.stamCost + " "+DURABILITY_STAT_STRING + ":" + this.durability + ")";
     }
 
+    /**
+     * Méthode qui permet de réparer une arme avec un RepairKit passé en paramètre
+     * @param kit
+     */
     public void repairWith(RepairKit kit){
         if(kit != null && kit.getCapacity()>0) {
             this.setDurability(this.getDurability() + kit.use());
         }
     }
 
+    /**
+     * Surcharge de la méthode getWeight contenu dans bags
+     * @return
+     */
     @Override
     public int getWeight() {
         return 2;

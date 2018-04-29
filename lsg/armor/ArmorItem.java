@@ -32,11 +32,19 @@ public class ArmorItem implements Collectible {
         return armorValue;
     }
 
+    /**
+     * Méthode qui Surcharge la méthode toString
+     * @return On renvoi une chaine de caractère de en donnant toutes les informations sur l'armure.
+     */
     @Override
     public String toString(){
         return this.name + " (" + this.armorValue + ")";
     }
 
+    /**
+     *
+     * @return Le poid que les armors prendront dans le sac.
+     */
     @Override
     public int getWeight() {
         return 4;
