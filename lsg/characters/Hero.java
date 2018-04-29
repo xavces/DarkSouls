@@ -3,6 +3,7 @@ package lsg.characters;
 import lsg.armor.ArmorItem;
 import lsg.armor.BlackWitchVeil;
 import lsg.buffs.rings.Ring;
+import lsg.exceptions.NoBagException;
 
 public class Hero extends Character{
 
@@ -126,8 +127,9 @@ public class Hero extends Character{
      * Méthode qui permet de sortir un item du sac et de l'équiper sur un slot précis
      * @param item
      * @param slot
+     * @throws NoBagException
      */
-    public void equip(ArmorItem item, int slot){
+    public void equip(ArmorItem item, int slot) throws NoBagException {
         if(pullOut(item) != null){
             this.setArmorItem(item, slot);
         }
@@ -137,11 +139,16 @@ public class Hero extends Character{
      * Méthode qui permet de sortir un Ring du sac et de l'équiper sur un slot précis
      * @param ring
      * @param slot
+     * @throws NoBagException
      */
-    public void equip(Ring ring, int slot){
+    public void equip(Ring ring, int slot) throws NoBagException {
         if(pullOut(ring) != null){
             this.setRing(ring, slot);
         }
+    }
+
+    public void printRings() {
+        System.out.println("RINGS   1:" + ring[0] + "           2:" + ring[1]);
     }
 
     @Override

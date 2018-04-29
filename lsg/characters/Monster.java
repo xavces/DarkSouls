@@ -29,8 +29,8 @@ public class Monster extends Character{
     }
 
     public Monster() {
-        super.setName("YMonster_" + this.INSTANCES_COUNT);;
-        this.INSTANCES_COUNT++;
+        super.setName("YMonster_" + INSTANCES_COUNT);
+        INSTANCES_COUNT++;
         super.setLife(10);
         super.setStamina(10);
     }

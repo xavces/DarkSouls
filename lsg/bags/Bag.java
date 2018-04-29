@@ -4,6 +4,7 @@ import lsg.armor.ArmorItem;
 import lsg.armor.BlackWitchVeil;
 import lsg.armor.DragonSlayerLeggings;
 import lsg.armor.RingedKnightArmor;
+import lsg.exceptions.BagFullException;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -56,11 +57,16 @@ public class Bag {
         this.capacity = capacity;
     }
 
+
     /**
      * Ajout d'un objet(item) dans le sac
      * @param item
+     * @throws BagFullException
      */
-    public void push(Collectible item){
+    public void push(Collectible item) throws BagFullException {
+        if (this.getWeight() >= this.getCapacity()) {
+            throw new BagFullException(this);
+        }
         if (item.getWeight() <=  this.capacity - this.weight) {
             items.add(item);
             this.setWeight(this.getWeight() + item.getWeight());
@@ -104,7 +110,7 @@ public class Bag {
      */
     @Override
     public String toString(){
-        String string = this.getClass() + " [ " + this.items.size() + " | " +
+        String string = "BAG : " + this.getClass().getSimpleName() + " [ " + this.items.size() + " | " +
                 this.weight + "/" + this.capacity + " kg ]" + System.lineSeparator();
         if(weight == 0){
             return string + BULLET_POINT + "empty";
@@ -125,11 +131,17 @@ public class Bag {
      * @param into
      */
     public static void transfer(Bag from, Bag into){
+        if(from == null || into == null)
+            return;
         for(Collectible objectFromBag : from.getItems()){
             if(objectFromBag.getWeight() > from.capacity - from.weight){
                 return;
             }
-            into.push(objectFromBag);
+            try {
+                into.push(objectFromBag);
+            } catch (BagFullException bagFullException) {
+                bagFullException.printStackTrace();
+            }
             from.pop(objectFromBag);
 
         }
@@ -138,8 +150,9 @@ public class Bag {
     /**
      * Main de Test des fonctions
      * @param args
+     * @throws BagFullException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BagFullException {
         DragonSlayerLeggings dragonSlayerLeggings = new DragonSlayerLeggings();
         RingedKnightArmor ringedKnightArmor = new RingedKnightArmor();
         SmallBag myBag = new SmallBag();

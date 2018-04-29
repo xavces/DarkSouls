@@ -54,3 +54,13 @@ Question 3.4
 This linked list defines the iteration ordering, which is the order in which elements were inserted into the set (insertion-order)
 
 Dans le LinkedHashSet, l'iterator est trié dans l'ordre d'insertion
+
+
+TP6
+
+Question 2.2
+
+Une exception a été remonté (NullPointerException) qui indique qu'un objet
+était vide dans la méthode attackWith. Le héro n'avait pas d'arme et à donc créer une erreur lors de l'attaque.
+
+

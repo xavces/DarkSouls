@@ -8,8 +8,8 @@ public class ArmorItem implements Collectible {
 
     /**
      * Constructeur d'une armure à l'aide du nom et de la valeur
-     * @param name
-     * @param armorValue
+     * @param name Nom de l'armure
+     * @param armorValue Valeur de protection de l'armure
      */
     public ArmorItem(String name, float armorValue) {
         this.name = name;
